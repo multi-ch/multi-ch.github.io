@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expert en bricolage et petits travaux au Havre. Montage meubles, plomberie, électricité, peinture. Devis gratuit. 07 80 55 12 98">
+    <title>🔧 Bricolage Le Havre - Expert en Petits Travaux</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --accent: #ff6b6b;
+            --email-btn: #2d3436; /* Couleur sombre pour le bouton email */
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --bg-light: #f8f9fc;
+            --success: #27ae60;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+
+        /* Hero */
+        .hero {
+            height: 55vh;
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), 
+                        url('https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .cta-button {
+            background: var(--accent); color: white; padding: 1rem 2rem;
+            text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block;
+            transition: 0.3s;
+        }
+
+        .cta-button.email {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+
+        /* ATOUTS MODERNISÉS */
+        .atouts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+            margin-top: -50px;
+        }
+
+        .atout-card {
+            background: var(--white); 
+            padding: 2.5rem 1.5rem; 
+            border-radius: 20px; 
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            transition: 0.3s;
+            position: relative;
+            z-index: 10;
+        }
+
+        .atout-card:hover { transform: translateY(-10px); }
+
+        .atout-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        .atout-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.3rem; }
+        .atout-card p { color: var(--text-light); font-size: 0.95rem; }
+
+        /* Services Grid */
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .section-title p { color: var(--text-light); }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white); border-radius: 20px; padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card h3 { 
+            color: var(--primary); font-size: 1.4rem; margin-bottom: 1.2rem; 
+            border-bottom: 2px solid #eee; padding-bottom: 10px;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .service-list { list-style: none; margin-bottom: 1.5rem; flex-grow: 1; }
+        .service-list li { margin-bottom: 8px; padding-left: 25px; position: relative; font-size: 0.9rem; color: var(--text-dark); }
+        .service-list li::before { content: "✔️"; position: absolute; left: 0; font-size: 0.8rem; }
+
+        .price-box { background: #f1f4f8; padding: 1.2rem; border-radius: 12px; margin-top: auto; }
+        .price-box h4 { font-size: 0.85rem; color: var(--secondary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .price-item { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px; }
+        .price-item span:last-child { font-weight: 700; color: var(--primary); }
+
+        .warning-box {
+            font-size: 0.75rem; background: #fff5f5; color: #c0392b; padding: 10px;
+            border-radius: 8px; margin-top: 15px; border-left: 3px solid #e74c3c;
+        }
+
+        /* Avis */
+        .reviews-section { margin-top: 5rem; text-align: center; }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .review-card {
+            background: white; padding: 2rem; border-radius: 15px; text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .stars { color: #f1c40f; margin-bottom: 10px; display: block; }
+        
+        .review-btn {
+            background: #4285F4; color: white; padding: 0.8rem 1.5rem;
+            text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-flex;
+            align-items: center; gap: 10px; margin-top: 2rem; transition: 0.3s;
+        }
+
+        /* Contact Footer */
+        .contact-footer {
+            background: var(--primary); color: white; text-align: center;
+            padding: 4rem 2rem; border-radius: 30px; margin-top: 4rem;
+        }
+
+        .contact-tel {
+            font-size: 2.2rem; color: white; text-decoration: none; font-weight: 700;
+            display: block; margin: 1rem 0; background: rgba(255,255,255,0.1);
+            padding: 10px; border-radius: 15px;
+        }
+
+        .email-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .email-link:hover { background: white; color: var(--primary); }
+
+        footer { text-align: center; padding: 2rem; color: #777; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">🔧 Bricolage Le Havre</div>
+            <ul class="nav-links">
+                <li><a href="#atouts">Atouts</a></li>
+                <li><a href="#services">Prestations</a></li>
+                <li><a href="#avis">Avis</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Artisan Multiservices au Havre</h1>
+            <p>Travail soigné, prix transparents et intervention rapide</p>
+            <div class="hero-btns">
+                <a href="tel:0780551298" class="cta-button">📞 Appeler le 07 80 55 12 98</a>
+                <a href="mailto:chouai.auto@gmail.com" class="cta-button email">✉️ Envoyer un Email</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <section id="atouts" class="atouts-grid">
+            <div class="atout-card">
+                <div class="atout-icon">📍</div>
+                <h3>Intervention Le Havre</h3>
+                <p>Réactif sur Le Havre, Ste-Adresse, Montivilliers et alentours.</p>
+            </div>
+            <div class="atout-card">
+                <div class="atout-icon">📋</div>
+                <h3>Devis Transparent</h3>
+                <p>Prix annoncés à l'avance, pas de mauvaise surprise sur la facture.</p>
+            </div>
+            <div class="atout-card">
+                <div class="atout-icon">🛡️</div>
+                <h3>Garantie Qualité</h3>
+                <p>Un travail soigné, propre et des finitions professionnelles.</p>
+            </div>
+        </section>
+
+        <div class="section-title" id="services">
+            <h2>Nos Prestations et Tarifs</h2>
+            <p>Des tarifs clairs pour un service de qualité</p>
+        </div>
+
+        <div class="services-container">
+            
+            <div class="service-card">
+                <h3>🔧 Bricolage général</h3>
+                <ul class="service-list">
+                    <li>Montage de meubles en kit (IKEA, But, etc.)</li>
+                    <li>Fixation d’étagères, cadres, miroirs</li>
+                    <li>Pose de tringles à rideaux</li>
+                    <li>Installation de TV murales (support client)</li>
+                    <li>Menuiserie (réglage portes, poignées, plinthes)</li>
+                </ul>
+                <div class="price-box">
+                    <h4>Tarifs indicatifs</h4>
+                    <div class="price-item"><span>Meuble simple</span><span>40 à 60 €</span></div>
+                    <div class="price-item"><span>Meuble complexe</span><span>70 à 120 €</span></div>
+                    <div class="price-item"><span>Fixations murales</span><span>30 à 50 €</span></div>
+                    <div class="price-item"><span>Pose TV murale</span><span>70 à 100 €</span></div>
+                    <div class="price-item"><span>Intervention heure</span><span>45 €/h</span></div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>🚿 Plomberie (Petits travaux)</h3>
+                <ul class="service-list">
+                    <li>Remplacement de robinet (lavabo, évier)</li>
+                    <li>Remplacement / réparation chasse d’eau</li>
+                    <li>Débouchage simple (lavabo, évier, douche)</li>
+                    <li>Réparation de fuites accessibles</li>
+                </ul>
+                <div class="price-box">
+                    <h4>Tarifs indicatifs</h4>
+                    <div class="price-item"><span>Remplacement robinet</span><span>60 à 90 €</span></div>
+                    <div class="price-item"><span>Réparation chasse d’eau</span><span>70 à 100 €</span></div>
+                    <div class="price-item"><span>Débouchage simple</span><span>60 à 90 €</span></div>
+                    <div class="price-item"><span>Déplacement*</span><span>30 €</span></div>
+                </div>
+                <div class="warning-box">⚠️ Hors gros travaux, réseaux encastrés ou installations complètes. *Offert si travaux réalisés.</div>
+            </div>
+
+            <div class="service-card">
+                <h3>⚡ Électricité</h3>
+                <ul class="service-list">
+                    <li>Remplacement de prises ou interrupteurs</li>
+                    <li>Pose de luminaires, plafonniers, appliques</li>
+                    <li>Petites réparations électriques visibles</li>
+                </ul>
+                <div class="price-box">
+                    <h4>Tarifs indicatifs</h4>
+                    <div class="price-item"><span>Remplacement prise</span><span>40 à 60 €</span></div>
+                    <div class="price-item"><span>Pose luminaire simple</span><span>50 à 80 €</span></div>
+                    <div class="price-item"><span>Diagnostic électrique</span><span>45 €</span></div>
+                </div>
+                <div class="warning-box">⚠️ Pas de création de ligne, pas de tableau électrique.</div>
+            </div>
+
+            <div class="service-card">
+                <h3>🎨 Peinture & Finitions</h3>
+                <ul class="service-list">
+                    <li>Peinture murs et plafonds</li>
+                    <li>Retouches peinture</li>
+                    <li>Rebouchage et finitions</li>
+                    <li>Pose de papier peint simple</li>
+                </ul>
+                <div class="price-box">
+                    <h4>Tarifs indicatifs</h4>
+                    <div class="price-item"><span>Peinture mur/plafond</span><span>20 à 30 €/m²</span></div>
+                    <div class="price-item"><span>Retouches</span><span>Dès 60 €</span></div>
+                    <div class="price-item"><span>Pose papier peint</span><span>25 à 35 €/m²</span></div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>🍽️ Pose de Cuisine</h3>
+                <ul class="service-list">
+                    <li>Montage meubles hauts et bas</li>
+                    <li>Découpe plan de travail (stratifié)</li>
+                    <li>Installation évier et plaques</li>
+                    <li>Fixation des crédences</li>
+                </ul>
+                <div class="price-box">
+                    <h4>Tarifs indicatifs</h4>
+                    <div class="price-item"><span>Par meuble</span><span>50 à 80 €</span></div>
+                    <div class="price-item"><span>Pose complète</span><span>200 à 1200 €</span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <section id="avis" class="reviews-section">
+            <div class="section-title">
+                <h2>Avis Clients</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <span class="stars">★★★★★</span>
+                    <p>"Pascal est très professionnel, minutieux et ponctuel. Travail impeccable pour la peinture du plafond."</p>
+                    <span class="review-author">— Véronique</span>
+                </div>
+                <div class="review-card">
+                    <span class="stars">★★★★★</span>
+                    <p>"Montage de dressing IKEA parfait. Personne soigneuse et agréable. Je recommande vivement !"</p>
+                    <span class="review-author">— Marie</span>
+                </div>
+            </div>
+            <a href="https://g.page/r/CZeWXXByZa6vEAE/review" target="_blank" class="review-btn">
+                ⭐ Laisser un avis sur Google
+            </a>
+        </section>
+
+        <section class="contact-footer" id="contact">
+            <h2>Besoin d'un artisan au Havre ?</h2>
+            <p>Devis gratuit et réponse rapide</p>
+            <a href="tel:0780551298" class="contact-tel">07 80 55 12 98</a>
+            <a href="mailto:chouai.auto@gmail.com" class="email-link">✉️ chouai.auto@gmail.com</a>
+            <p style="margin-top: 20px;">Sainte-Adresse • Montivilliers • Harfleur • Octeville</p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Bricolage Le Havre - Service professionnel de proximité
+    </footer>
+
+</body>
+</html>
