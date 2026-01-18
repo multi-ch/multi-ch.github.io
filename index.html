@@ -215,33 +215,33 @@
         footer { text-align: center; padding: 2rem; color: #777; font-size: 0.8rem; }
 
 
-        /* Style de la section Présentation */
+       /* Style de la section Présentation - VERSION COMPACTE */
         .presentation-section {
-            padding: 5rem 2rem;
+            padding: 3rem 2rem; /* Réduit de 5rem à 3rem */
             background: var(--white);
         }
 
         .container-pres {
-            max-width: 1100px;
+            max-width: 1000px; /* Un peu plus étroit pour plus de densité */
             margin: 0 auto;
             display: flex;
             align-items: center;
-            gap: 4rem;
+            gap: 3rem; /* Espace entre photo et texte réduit */
             flex-wrap: wrap;
         }
 
         .pres-image {
             flex: 1;
-            min-width: 300px;
+            min-width: 250px;
             text-align: center;
         }
 
         .pres-image img {
             width: 100%;
-            max-width: 400px;
-            border-radius: 30px;
-            box-shadow: 20px 20px 60px #d1d9e6, -20px -20px 60px #ffffff;
-            border: 8px solid var(--white);
+            max-width: 320px; /* Photo réduite de 400px à 320px */
+            border-radius: 25px;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.1); /* Ombre plus discrète */
+            border: 6px solid var(--white);
         }
 
         .pres-text {
@@ -249,36 +249,19 @@
             min-width: 300px;
         }
 
-        .badge {
-            background: rgba(30, 60, 114, 0.1);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
         .pres-text h2 {
-            font-size: 2rem;
+            font-size: 1.8rem; /* Titre légèrement plus petit */
             color: var(--primary);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .pres-text p {
             margin-bottom: 1rem;
-            color: var(--text-light);
+            line-height: 1.2;
         }
 
         .pres-stats {
             display: flex;
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             border-top: 1px solid #eee;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
         }
 
         .stat-item {
