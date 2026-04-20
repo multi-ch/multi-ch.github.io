@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="ls0vusxPsN6sf59zjoFSkuLgTBU_NsYAcrFQAL3UNl8" />
     <meta name="description" content="Expert en bricolage et petits travaux au Havre. Montage meubles, plomberie, électricité, peinture. Devis gratuit. 07 80 55 12 98">
-    <title>Bricoleur au Havre - Multi'CH | Petits travaux et dépannage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Multi'CH | Artisan Bricoleur au Havre - Petits travaux et dépannage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #1e40af;
-            --primary-dark: #1e3a8a;
-            --secondary-blue: #3b82f6;
-            --accent-purple: #7c3aed;
-            --accent-red: #ef4444;
-            --accent-orange: #f97316;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #10b981;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-light: #f8fafc;
             --white: #ffffff;
-            --bg-light: #f3f4f6;
-            --border-light: #e5e7eb;
-            --success: #10b981;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -30,332 +25,255 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
+        html {
             scroll-behavior: smooth;
         }
 
-        /* ===== HEADER ===== */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Header & Nav */
         header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
-            padding: 1rem 2rem;
-            position: sticky;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         nav {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: white;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.5rem;
         }
 
         .logo img {
-            max-height: 60px;
-            width: auto;
+            height: 45px;
+            border-radius: 8px;
         }
 
         .nav-links {
             display: flex;
+            gap: 2rem;
             list-style: none;
-            gap: 2.5rem;
         }
 
         .nav-links a {
-            color: white;
             text-decoration: none;
+            color: var(--text-main);
             font-weight: 500;
-            font-size: 0.9rem;
-            transition: opacity 0.3s ease;
+            transition: var(--transition);
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
-            opacity: 0.8;
+            color: var(--primary);
         }
 
-        /* ===== HERO SECTION ===== */
-        .hero-section {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
-            min-height: 600px;
-            display: flex;
-            align-items: center;
+        .btn-contact-nav {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .btn-contact-nav:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 2rem 100px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .hero-section::before {
+        .hero::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('https://ferreteriacasas.com/wp-content/uploads/2022/04/Herramientas-Ferreteria-2.png');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            z-index: 1;
+            bottom: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            opacity: 0.05;
+            border-radius: 50%;
         }
 
         .hero-container {
-            max-width: 1400px;
-            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
             align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content {
-            color: white;
-        }
-
-        .hero-logo {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
         }
 
         .hero-content h1 {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
         }
 
         .hero-content p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.95;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
         }
 
-        .cta-button {
-            background: var(--accent-red);
-            color: white;
-            padding: 0.9rem 2rem;
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
             text-decoration: none;
-            border-radius: 50px;
             font-weight: 700;
+            transition: var(--transition);
             display: inline-block;
-            transition: all 0.3s ease;
+            text-align: center;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
-            background: #dc2626;
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
         }
 
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
         }
 
         .hero-image img {
             width: 100%;
-            max-width: 350px;
-            height: auto;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            transform: rotate(2deg);
         }
 
-        /* ===== PRESENTATION SECTION ===== */
-        .presentation-section {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 0 2rem;
+        /* Sections General */
+        section {
+            padding: 100px 2rem;
         }
 
-        .presentation-block {
-            background: white;
-            border-radius: 25px;
-            padding: 3rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border: 1px solid var(--border-light);
-        }
-
-        .presentation-text h2 {
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-
-        .presentation-text p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        .presentation-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .presentation-image img {
-            width: 100%;
-            max-width: 280px;
-            height: auto;
-            opacity: 0.85;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
-        }
-
-        /* ===== ATOUTS SECTION ===== */
-        .atouts-section {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        .atouts-block {
-            background: white;
-            border-radius: 25px;
-            padding: 3rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border: 1px solid var(--border-light);
-        }
-
-        .atouts-title {
+        .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
-        .atouts-title h2 {
-            font-size: 2rem;
-            color: var(--text-dark);
+        .section-title h2 {
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .atouts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .atout-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--bg-light);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .atout-item:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, #f0f9ff 0%, #f3e8ff 100%);
-        }
-
-        .atout-icon {
-            font-size: 3rem;
+            color: #1e3a8a;
             margin-bottom: 1rem;
         }
 
-        .atout-item h3 {
-            color: var(--primary-blue);
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
         }
 
-        .atout-list {
-            list-style: none;
-            text-align: left;
-        }
-
-        .atout-list li {
-            padding: 0.5rem 0;
-            padding-left: 25px;
-            position: relative;
-            font-size: 0.85rem;
-            color: var(--text-light);
-            line-height: 1.5;
-        }
-
-        .atout-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        /* ===== SERVICES SECTION ===== */
-        .services-section {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        .services-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .services-title h2 {
-            font-size: 2rem;
-            color: var(--text-dark);
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
+        /* Services Section */
         .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
 
         .service-card {
-            background: white;
+            background: var(--white);
             border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid #f1f5f9;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
         }
 
-        .service-card h3 {
-            color: var(--primary-blue);
-            font-size: 1.3rem;
+        .service-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .service-info {
+            padding: 2rem;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--secondary-blue);
-            padding-bottom: 1rem;
-            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .service-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
         }
 
         .service-list {
@@ -364,54 +282,58 @@
         }
 
         .service-list li {
-            padding: 0.5rem 0;
-            padding-left: 25px;
-            position: relative;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
         }
 
         .service-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 700;
-            font-size: 1rem;
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
         }
 
         .price-section {
-            background: var(--bg-light);
-            padding: 1.5rem;
+            background: #f8fafc;
             border-radius: 12px;
+            padding: 1.5rem;
             margin-top: 1.5rem;
+            border-left: 4px solid var(--primary);
         }
 
         .price-section h4 {
-            font-size: 0.8rem;
-            color: var(--primary-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .price-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.5rem 0;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #e2e8f0;
             font-size: 0.9rem;
-            border-bottom: 1px solid var(--border-light);
         }
 
         .price-item:last-child {
             border-bottom: none;
         }
 
+        .price-item span:first-child {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
         .price-item span:last-child {
+            color: var(--primary);
             font-weight: 700;
-            color: var(--primary-blue);
         }
 
         .warning-box {
@@ -419,510 +341,612 @@
             border-left: 4px solid #f59e0b;
             padding: 1rem;
             border-radius: 8px;
-            font-size: 0.8rem;
-            color: #92400e;
             margin-top: 1rem;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            color: #92400e;
         }
 
-        /* ===== REVIEWS SECTION ===== */
-        .reviews-section {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        .reviews-title {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .reviews-title h2 {
-            font-size: 2rem;
-            color: var(--text-dark);
-            font-weight: 800;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .review-card {
+        /* About Section */
+        .about {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
         }
 
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-
-        .stars {
-            color: #fbbf24;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .review-card p {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .review-author {
-            color: var(--primary-blue);
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .review-btn {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            display: inline-block;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        .about-container {
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
         }
 
-        .review-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
+        .about-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
         }
 
-        .reviews-center {
-            text-align: center;
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
         }
 
-        /* ===== CONTACT SECTION ===== */
-        .contact-section {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 0 2rem;
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Realisations Gallery */
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f1f5f9;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: var(--primary-dark);
+            padding: 3rem;
+            border-radius: 24px;
+            color: white;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
             margin-bottom: 3rem;
         }
 
-        .contact-block {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
-            border-radius: 30px;
-            padding: 3rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            overflow: hidden;
-            position: relative;
+        .footer-logo h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .contact-block::before {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .contact-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-content h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-content p {
-            font-size: 1rem;
+        .footer-links h4 {
             margin-bottom: 1.5rem;
-            opacity: 0.95;
         }
 
-        .contact-tel {
-            background: white;
-            color: var(--primary-blue);
-            padding: 0.8rem 2rem;
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: var(--transition);
         }
 
-        .contact-tel:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        .footer-links a:hover {
+            color: white;
         }
 
-        .contact-services {
-            font-size: 0.95rem;
-            margin-top: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .contact-map {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            height: 300px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .contact-map iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #1e293b;
             text-align: center;
-            padding: 2rem;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            background: white;
-            border-top: 1px solid var(--border-light);
+            color: #64748b;
+            font-size: 0.9rem;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container, .about-container, .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-image { order: -1; }
+        }
+
         @media (max-width: 768px) {
-            .hero-container,
-            .presentation-block,
-            .contact-block {
-                grid-template-columns: 1fr;
-                padding: 2rem;
-                gap: 2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-logo {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.8rem;
-            }
-
-            .atouts-grid,
-            .services-grid,
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-map {
-                height: 250px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.8rem;
-            }
-
-            .hero-container {
-                padding: 1.5rem;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-logo {
-                font-size: 2rem;
-            }
-
-            .atouts-title h2,
-            .services-title h2,
-            .reviews-title h2 {
-                font-size: 1.5rem;
-            }
-
-            .contact-map {
-                height: 200px;
-            }
+            .nav-links { display: none; }
+            .hero { padding-top: 120px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-title h2 { font-size: 2rem; }
+            .stats { flex-direction: column; gap: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <nav>
-        <div class="logo">
-            <span><img src="https://multi-ch.github.io/1768680134589.jpg" alt="Bricolage Le Havre"></span>
-            <span>Multi'CH</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#atouts">Nos Atouts</a></li>
-            <li><a href="#contact">Contactez</a></li>
-        </ul>
-    </nav>
-</header>
-
-<section class="hero-section" id="accueil">
-    <div class="hero-container">
-        <div class="hero-content">
-            <h1>Votre Expert en Travaux de bricolage</h1>
-            <p>Travaux de bricolage et dépannages du quotidien</p>
-            <a href="tel:0780551298" class="cta-button">Devis Gratuit</a>
-        </div>
-        <div class="hero-image">
-        </div>
-    </div>
-</section>
-
-<section class="presentation-section">
-    <div class="presentation-block">
-        <div class="presentation-text">
-        <div class="pres-text">
-                <span class="badge">À propos de votre artisan Mr CHOUAI H.</span>
-                <h2>Plus de 10 ans d'expérience à votre service</h2>
-                <p>
-                    Bonjour, je suis votre artisan multiservices de proximité au Havre. Passionné par le travail bien fait, je mets mon savoir-faire de plus de <strong>10 ans</strong> à votre disposition pour tous vos besoins du quotidien.
-                </p>
-                <p>
-                    Que ce soit pour une urgence en plomberie, le montage complexe d'une cuisine ou de simples finitions de peinture, j'interviens avec la même rigueur. Mon objectif : vous offrir un résultat professionnel, durable et propre.
-               Bricoleur à Le Havre
-Petits travaux à domicile Le Havre
-Artisan bricolage Le Havre
-Service de bricolage en Normandie
-Dépannage maison Le Havre
-Réparation rapide à domicile Le Havre
-                </p>
-               
-            </div>    
-        </div>
-        <div class="presentation-image">
-            <img src="https://multi-ch.github.io/hamida.png" alt="Bricolage Multiservices">
-        </div>
-    </div>
-</section>
-
-<section class="atouts-section" id="atouts">
-    <div class="atouts-block">
-        <div class="atouts-title">
-        </div>
-        <div class="atouts-grid">
-            <div class="atout-item">
-                <div class="atout-icon">📍</div>
-                <h3>Proximité et Réactivité</h3>
-                <ul class="atout-list">
-                    <li>Réactif sur Le Havre, Ste-Adresse, Montivilliers et alentours.</li>
-                </ul>
-            </div>
-            <div class="atout-item">
-                <div class="atout-icon">🛡️</div>
-                <h3>Garantie Qualité</h3>
-                <ul class="atout-list">
-                    <li>Un travail soigné, propre et des finitions professionnelles.</li>
-                   
-                </ul>
-            </div>
-           
-            <div class="atout-item">
-                <div class="atout-icon">💰</div>
-                <h3>Tarifs Transparents</h3>
-                <ul class="atout-list">
-                    <li>Prix annoncés à l'avance, pas de mauvaise surprise sur la facture.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="services-section" id="services">
-    <div class="services-title">
-        <h2>Nos Prestations et Tarifs</h2>
-    </div>
-    <div class="services-grid">
-        <div class="service-card">
-            <h3>🔧 Bricolage général</h3>
-            <ul class="service-list">
-                <li>Montage de meubles en kit (IKEA, But, etc.)</li>
-                <li>Fixation d'étagères, cadres, miroirs</li>
-                <li>Pose de tringles à rideaux</li>
-                <li>Installation de TV murales</li>
-                <li>Menuiserie (réglage portes, poignées)</li>
-            </ul>
-            <div class="price-section">
-                <h4>Tarifs indicatifs</h4>
-                <div class="price-item"><span>Meuble simple</span><span>40 à 60 €</span></div>
-                <div class="price-item"><span>Meuble complexe</span><span>70 à 120 €</span></div>
-                <div class="price-item"><span>Fixations murales</span><span>30 à 50 €</span></div>
-                <div class="price-item"><span>Pose TV murale</span><span>70 à 100 €</span></div>
-                <div class="price-item"><span>Intervention/heure</span><span>45 €/h</span></div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <h3>🚿 Plomberie (Petits travaux)</h3>
-            <ul class="service-list">
-                <li>Remplacement de robinet (lavabo, évier)</li>
-                <li>Remplacement / réparation chasse d'eau</li>
-                <li>Débouchage simple (lavabo, évier, douche)</li>
-                <li>Réparation de fuites accessibles</li>
-            </ul>
-            <div class="price-section">
-                <h4>Tarifs indicatifs</h4>
-                <div class="price-item"><span>Remplacement robinet</span><span>60 à 90 €</span></div>
-                <div class="price-item"><span>Réparation chasse d'eau</span><span>70 à 100 €</span></div>
-                <div class="price-item"><span>Débouchage simple</span><span>60 à 90 €</span></div>
-                <div class="price-item"><span>Déplacement*</span><span>30 €</span></div>
-            </div>
-            <div class="warning-box">⚠️ Hors gros travaux, réseaux encastrés ou installations complètes. *Offert si travaux réalisés.</div>
-        </div>
-
-        <div class="service-card">
-            <h3>⚡ Électricité</h3>
-            <ul class="service-list">
-                <li>Remplacement de prises ou interrupteurs</li>
-                <li>Pose de luminaires, plafonniers, appliques</li>
-                <li>Petites réparations électriques visibles</li>
-            </ul>
-            <div class="price-section">
-                <h4>Tarifs indicatifs</h4>
-                <div class="price-item"><span>Remplacement prise</span><span>40 à 60 €</span></div>
-                <div class="price-item"><span>Pose luminaire simple</span><span>50 à 80 €</span></div>
-                <div class="price-item"><span>Diagnostic électrique</span><span>45 €</span></div>
-            </div>
-            <div class="warning-box">⚠️ Pas de création de ligne, pas de tableau électrique.</div>
-        </div>
-
-        <div class="service-card">
-            <h3>🎨 Peinture & Finitions</h3>
-            <ul class="service-list">
-                <li>Peinture murs et plafonds</li>
-                <li>Retouches peinture</li>
-                <li>Rebouchage et finitions</li>
-                <li>Pose de papier peint simple</li>
-            </ul>
-            <div class="price-section">
-                <h4>Tarifs indicatifs</h4>
-                <div class="price-item"><span>Peinture mur/plafond</span><span>20 à 30 €/m²</span></div>
-                <div class="price-item"><span>Retouches</span><span>Dès 60 €</span></div>
-                <div class="price-item"><span>Pose papier peint</span><span>25 à 35 €/m²</span></div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <h3>🍽️ Pose de Cuisine</h3>
-            <ul class="service-list">
-                <li>Montage meubles hauts et bas</li>
-                <li>Découpe plan de travail (stratifié)</li>
-                <li>Installation évier et plaques</li>
-                <li>Fixation des crédences</li>
-            </ul>
-            <div class="price-section">
-                <h4>Tarifs indicatifs</h4>
-                <div class="price-item"><span>Par meuble</span><span>50 à 80 €</span></div>
-                <div class="price-item"><span>Pose complète</span><span>200 à 1200 €</span></div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <h3>🪚 Menuiserie & Aménagement</h3>
-            <ul class="service-list">
-                <li>Pose de parquet flottant et plinthes</li>
-                <li>Construction de terrasse en bois</li>
-                <li>Habillage de murs en lambris bois</li>
-                <li>Installation de dressing (structure simple)</li>
-                <li>Réparation et ajustement de portes</li>
-            </ul>
-            <div class="price-section">
-                <h4>Tarifs indicatifs</h4>
-                <div class="price-item"><span>Pose parquet</span><span>20 à 35 €/m²</span></div>
-                <div class="price-item"><span>Terrasse bois</span><span>Sur devis</span></div>
-                <div class="price-item"><span>Dressing (pose)</span><span>Dès 150 €</span></div>
-                <div class="price-item"><span>Ajustement porte</span><span>45 à 60 €</span></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="reviews-section" id="avis">
-    <div class="reviews-title">
-        <h2>Avis Clients</h2>
-    </div>
-    <div class="reviews-grid">
-        <div class="review-card">
-            <span class="stars">★★★★★</span>
-            <p>"Pascal est très professionnel, minutieux et ponctuel. Travail impeccable pour la peinture du plafond."</p>
-            <span class="review-author">— Véronique</span>
-        </div>
-        <div class="review-card">
-            <span class="stars">★★★★★</span>
-            <p>"Montage de dressing IKEA parfait. Personne soigneuse et agréable. Je recommande vivement !"</p>
-            <span class="review-author">— Marie</span>
-        </div>
-    </div>
-    <div class="reviews-center">
-        <a href="https://g.page/r/CZeWXXByZa6vEAE/review" target="_blank" class="review-btn">
-            ⭐ Laisser un avis sur Google
-        </a>
-    </div>
-</section>
-
-<section class="contact-section" id="contact">
-    <div class="contact-block">
-        <div class="contact-content">
-            <h2>Contactez-nous</h2>
-            <p>Bricolage Multiservices Le Havre</p>
-            <a href="tel:0780551298" class="contact-tel">
-                📞 07 80 55 12 98
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
+                <span>Multi'CH</span>
             </a>
-            <div class="contact-services">
-                Petits Travaux • Dépannage • Montage • Installation
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#a-propos">À propos</a></li>
+                <li><a href="#realisations">Réalisations</a></li>
+                <li><a href="#contact" class="btn-contact-nav">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="accueil">
+        <div class="hero-container">
+            <div class="hero-content animate">
+                <h1>Votre Expert en Bricolage au Havre</h1>
+                <p>Travaux de bricolage, dépannages du quotidien et rénovations. Un service professionnel, rapide et soigné pour votre maison.</p>
+                <div class="hero-btns">
+                    <a href="tel:0780551298" class="btn btn-primary">Devis Gratuit</a>
+                    <a href="#services" class="btn btn-outline">Nos Services</a>
+                </div>
+            </div>
+            <div class="hero-image animate">
+                <img src="images/hero.jpg" alt="Artisan Bricoleur">
             </div>
         </div>
-        <div class="contact-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2617.5854819282667!2d0.10671!3d49.54306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e2f5c5c5c5c5c5%3A0x0!2sLe%20Havre!5e0!3m2!1sfr!2sfr!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <section id="services">
+        <div class="section-title animate">
+            <h2>Nos Services & Tarifs</h2>
+            <p>Des solutions sur mesure pour tous vos besoins de bricolage</p>
         </div>
-    </div>
-</section>
+        <div class="services-grid">
+            <!-- Bricolage -->
+            <div class="service-card animate">
+                <img src="images/bricolage.jpg" alt="Bricolage" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    </div>
+                    <h3>🔧 Bricolage Général</h3>
+                    <ul class="service-list">
+                        <li>Montage de meubles en kit (IKEA, But, etc.)</li>
+                        <li>Fixation d'étagères, cadres, miroirs</li>
+                        <li>Pose de tringles à rideaux</li>
+                        <li>Installation de TV murales</li>
+                        <li>Menuiserie (réglage portes, poignées)</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Meuble simple</span><span>40 à 60 €</span></div>
+                        <div class="price-item"><span>Meuble complexe</span><span>70 à 120 €</span></div>
+                        <div class="price-item"><span>Fixations murales</span><span>30 à 50 €</span></div>
+                        <div class="price-item"><span>Pose TV murale</span><span>70 à 100 €</span></div>
+                        <div class="price-item"><span>Intervention/heure</span><span>45 €/h</span></div>
+                    </div>
+                </div>
+            </div>
 
-<footer>
-    &copy; 2026 Bricolage Le Havre - Service professionnel de proximité
-</footer>
+            <!-- Plomberie -->
+            <div class="service-card animate">
+                <img src="images/plomberie.jpg" alt="Plomberie" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"></path><path d="M11 12.3c0 2.2 1.8 4 4 4s4-1.8 4-4-1.8-4-4-4-4 1.8-4 4z"></path><path d="M15 16.3c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"></path></svg>
+                    </div>
+                    <h3>🚿 Plomberie (Petits travaux)</h3>
+                    <ul class="service-list">
+                        <li>Remplacement de robinet (lavabo, évier)</li>
+                        <li>Remplacement / réparation chasse d'eau</li>
+                        <li>Débouchage simple (lavabo, évier, douche)</li>
+                        <li>Réparation de fuites accessibles</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Remplacement robinet</span><span>60 à 90 €</span></div>
+                        <div class="price-item"><span>Réparation chasse d'eau</span><span>70 à 100 €</span></div>
+                        <div class="price-item"><span>Débouchage simple</span><span>60 à 90 €</span></div>
+                        <div class="price-item"><span>Déplacement*</span><span>30 €</span></div>
+                    </div>
+                    <div class="warning-box">⚠️ Hors gros travaux, réseaux encastrés ou installations complètes. *Offert si travaux réalisés.</div>
+                </div>
+            </div>
 
+            <!-- Electricité -->
+            <div class="service-card animate">
+                <img src="images/electricite.jpg" alt="Electricité" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                    </div>
+                    <h3>⚡ Électricité</h3>
+                    <ul class="service-list">
+                        <li>Remplacement de prises ou interrupteurs</li>
+                        <li>Pose de luminaires, plafonniers, appliques</li>
+                        <li>Petites réparations électriques visibles</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Remplacement prise</span><span>40 à 60 €</span></div>
+                        <div class="price-item"><span>Remplacement interrupteur</span><span>40 à 60 €</span></div>
+                        <div class="price-item"><span>Pose luminaire</span><span>50 à 80 €</span></div>
+                        <div class="price-item"><span>Déplacement*</span><span>30 €</span></div>
+                    </div>
+                    <div class="warning-box">⚠️ Pas de création de ligne, pas de tableau électrique.</div>
+                </div>
+            </div>
+
+            <!-- Peinture -->
+            <div class="service-card animate">
+                <img src="images/peinture.jpg" alt="Peinture" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
+                    </div>
+                    <h3>🎨 Peinture & Finitions</h3>
+                    <ul class="service-list">
+                        <li>Peinture murs et plafonds</li>
+                        <li>Retouches peinture</li>
+                        <li>Rebouchage et finitions</li>
+                        <li>Pose de papier peint simple</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Peinture mur/plafond</span><span>20 à 30 €/m²</span></div>
+                        <div class="price-item"><span>Retouches</span><span>Dès 60 €</span></div>
+                        <div class="price-item"><span>Pose papier peint</span><span>25 à 35 €/m²</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cuisine -->
+            <div class="service-card animate">
+                <img src="images/cuisine.jpg" alt="Cuisine" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <h3>🍽️ Pose de Cuisine</h3>
+                    <ul class="service-list">
+                        <li>Montage meubles hauts et bas</li>
+                        <li>Découpe plan de travail (stratifié)</li>
+                        <li>Installation évier et plaques</li>
+                        <li>Fixation des crédences</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Par meuble</span><span>50 à 80 €</span></div>
+                        <div class="price-item"><span>Pose complète</span><span>200 à 1200 €</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menuiserie -->
+            <div class="service-card animate">
+                <img src="images/menuiserie.jpg" alt="Menuiserie" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
+                    </div>
+                    <h3>🪚 Menuiserie & Aménagement</h3>
+                    <ul class="service-list">
+                        <li>Pose de parquet flottant et plinthes</li>
+                        <li>Construction de terrasse en bois</li>
+                        <li>Habillage de murs en lambris bois</li>
+                        <li>Installation de dressing (structure simple)</li>
+                        <li>Réparation et ajustement de portes</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Pose parquet</span><span>20 à 35 €/m²</span></div>
+                        <div class="price-item"><span>Terrasse bois</span><span>Sur devis</span></div>
+                        <div class="price-item"><span>Dressing (pose)</span><span>Dès 150 €</span></div>
+                        <div class="price-item"><span>Ajustement porte</span><span>45 à 60 €</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="a-propos">
+        <div class="about-container">
+            <div class="about-image animate">
+                <img src="https://multi-ch.github.io/hamida.png" alt="Mr CHOUAI H.">
+            </div>
+            <div class="about-content animate">
+                <h2>À propos de votre artisan</h2>
+                <p>Bonjour, je suis <strong>Mr CHOUAI H.</strong>, votre artisan multiservices de proximité au Havre. Passionné par le travail bien fait, je mets mon savoir-faire de plus de 10 ans à votre disposition.</p>
+                <p>Que ce soit pour une urgence en plomberie, le montage complexe d'une cuisine ou de simples finitions de peinture, j'interviens avec la même rigueur. Mon objectif : vous offrir un résultat professionnel, durable et propre.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h4>10+</h4>
+                        <p>Années d'expérience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>500+</h4>
+                        <p>Projets réalisés</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Clients satisfaits</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="realisations">
+        <div class="section-title animate">
+            <h2>Nos Réalisations</h2>
+            <p>Aperçu de nos derniers travaux chez nos clients</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item animate">
+                <img src="images/cuisine.jpg" alt="Cuisine">
+                <div class="gallery-overlay"><span>Pose de cuisine complète</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/peinture.jpg" alt="Peinture">
+                <div class="gallery-overlay"><span>Rénovation peinture salon</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/menuiserie.jpg" alt="Parquet">
+                <div class="gallery-overlay"><span>Pose de parquet flottant</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/bricolage.jpg" alt="Meuble">
+                <div class="gallery-overlay"><span>Montage meuble complexe</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/plomberie.jpg" alt="Plomberie">
+                <div class="gallery-overlay"><span>Rénovation robinetterie</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/electricite.jpg" alt="Electricité">
+                <div class="gallery-overlay"><span>Installation luminaires</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="section-title animate">
+            <h2>Contactez-nous</h2>
+            <p>Demandez votre devis gratuit dès aujourd'hui</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info animate">
+                <h3>Parlons de votre projet</h3>
+                <p>Disponible du lundi au samedi pour toutes vos interventions au Havre et ses alentours.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <div>
+                            <strong>Téléphone</strong><br>
+                            <a href="tel:0780551298" style="color: white; text-decoration: none;">07 80 55 12 98</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Zone d'intervention</strong><br>
+                            Le Havre, Ste-Adresse, Montivilliers
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>⭐</span>
+                        <div>
+                            <strong>Avis Clients</strong><br>
+                            <a href="https://g.page/r/CZeWXXByZa6vEAE/review" style="color: white;" target="_blank">Laisser un avis sur Google</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form animate">
+                <form>
+                    <div class="form-group">
+                        <label>Nom complet</label>
+                        <input type="text" placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" placeholder="Votre numéro">
+                    </div>
+                    <div class="form-group">
+                        <label>Type de service</label>
+                        <select>
+                            <option>Bricolage</option>
+                            <option>Plomberie</option>
+                            <option>Électricité</option>
+                            <option>Peinture</option>
+                            <option>Cuisine</option>
+                            <option>Menuiserie</option>
+                            <option>Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="Décrivez votre besoin..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Envoyer la demande</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Multi'CH</h3>
+                <p>Votre artisan de confiance au Havre pour tous vos petits travaux.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#realisations">Réalisations</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Bricolage</a></li>
+                    <li><a href="#services">Plomberie</a></li>
+                    <li><a href="#services">Électricité</a></li>
+                    <li><a href="#services">Peinture</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Multi'CH - Bricolage Le Havre. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
