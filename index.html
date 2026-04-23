@@ -608,6 +608,79 @@
             .section-title h2 { font-size: 2rem; }
             .stats { flex-direction: column; gap: 1.5rem; }
         }
+
+
+
+    /* Bouton flottant avis Google */
+        .google-review-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        .google-review-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid white;
+        }
+
+        .google-review-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(66, 133, 244, 0.6);
+        }
+
+        .google-icon {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .stars span {
+            font-size: 18px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .google-review-floating {
+                bottom: 20px;
+                right: 20px;
+            }
+            .google-review-btn {
+                padding: 12px 18px;
+                font-size: 14px;
+            }
+            .google-review-btn .btn-text {
+                display: none;
+            }
+        }
+    </style>
     </style>
 </head>
 <body>
@@ -980,5 +1053,25 @@
 
         document.querySelectorAll('.animate').forEach(el => observer.observe(el));
     </script>
+
+
+ <!-- Bouton flottant avis Google -->
+    <div class="google-review-floating">
+        <a href="https://g.page/r/CZeWXXByZa6vEAE/review" 
+           target="_blank" 
+           class="google-review-btn"
+           rel="noopener noreferrer"
+           aria-label="Laisser un avis 5 étoiles sur Google">
+            <div class="google-icon">⭐</div>
+            <div class="stars">
+                <span>⭐</span>
+                <span>⭐</span>
+                <span>⭐</span>
+                <span>⭐</span>
+                <span>⭐</span>
+            </div>
+            <span class="btn-text">Laisser un avis</span>
+        </a>
+    </div>
 </body>
 </html>
