@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Décoration & Peinture - Multi'CH Le Havre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
+                <span>Multi'CH</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="decoration.html">Décoration</a></li>
+                <li><a href="bricolage.html">Bricolage</a></li>
+                <li><a href="cuisine.html">Pose de cuisines</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="reparations.html">Réparations locatives</a></li>
+                <li><a href="contact.html" class="btn-contact-nav">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="services">
+        <div class="section-title animate">
+            <h2>Décoration & Peinture</h2>
+            <p>Embellissez votre intérieur avec nos services de finitions</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate">
+                <img src="images/peinture.jpg" alt="Peintre Le Havre" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
+                    </div>
+                    <h3>🎨 Peinture & Finitions</h3>
+                    <ul class="service-list">
+                        <li>Peinture murs et plafonds</li>
+                        <li>Retouches peinture</li>
+                        <li>Rebouchage et finitions</li>
+                        <li>Pose de papier peint simple</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Peinture mur/plafond</span><span>15 à 25 €/m²</span></div>
+                        <div class="price-item"><span>Retouches</span><span>Dès 40 €</span></div>
+                        <div class="price-item"><span>Pose papier peint</span><span>18 à 28 €/m²</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Multi'CH</h3>
+                <p>Artisan bricoleur professionnel au Havre.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="bricolage.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Multi'CH - Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

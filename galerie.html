@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Réalisations - Multi'CH Le Havre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
+                <span>Multi'CH</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="decoration.html">Décoration</a></li>
+                <li><a href="bricolage.html">Bricolage</a></li>
+                <li><a href="cuisine.html">Pose de cuisines</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="reparations.html">Réparations locatives</a></li>
+                <li><a href="contact.html" class="btn-contact-nav">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="realisations">
+        <div class="section-title animate">
+            <h2>Nos Réalisations</h2>
+            <p>Aperçu de nos derniers travaux chez nos clients</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item animate">
+                <img src="images/cuisine.jpg" alt="Pose cuisine">
+                <div class="gallery-overlay"><span>Pose de cuisine complète</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/peinture.jpg" alt="Rénovation peinture">
+                <div class="gallery-overlay"><span>Rénovation peinture salon</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/menuiserie.jpg" alt="Pose parquet">
+                <div class="gallery-overlay"><span>Pose de parquet flottant</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/bricolage.jpg" alt="Montage meuble">
+                <div class="gallery-overlay"><span>Montage meuble complexe</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/plomberie.jpg" alt="Plomberie">
+                <div class="gallery-overlay"><span>Rénovation robinetterie</span></div>
+            </div>
+            <div class="gallery-item animate">
+                <img src="images/electricite.jpg" alt="Electricité">
+                <div class="gallery-overlay"><span>Installation luminaires</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Multi'CH</h3>
+                <p>Artisan bricoleur professionnel au Havre.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

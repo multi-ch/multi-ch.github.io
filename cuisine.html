@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pose de Cuisine - Multi'CH Le Havre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
+                <span>Multi'CH</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="decoration.html">Décoration</a></li>
+                <li><a href="bricolage.html">Bricolage</a></li>
+                <li><a href="cuisine.html">Pose de cuisines</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="reparations.html">Réparations locatives</a></li>
+                <li><a href="contact.html" class="btn-contact-nav">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="services">
+        <div class="section-title animate">
+            <h2>Pose de Cuisine</h2>
+            <p>Installation complète ou partielle de votre cuisine équipée</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate">
+                <img src="images/cuisine.jpg" alt="Pose cuisine" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <h3>🍽️ Pose de Cuisine</h3>
+                    <ul class="service-list">
+                        <li>Montage meubles hauts et bas</li>
+                        <li>Découpe plan de travail</li>
+                        <li>Installation évier et plaques</li>
+                        <li>Fixation des crédences</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Par meuble</span><span>40 à 60 €</span></div>
+                        <div class="price-item"><span>Pose complète</span><span>150 à 900 €</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Multi'CH</h3>
+                <p>Artisan bricoleur professionnel au Havre.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

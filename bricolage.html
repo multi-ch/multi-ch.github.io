@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bricolage, Plomberie & Électricité - Multi'CH Le Havre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
+                <span>Multi'CH</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="decoration.html">Décoration</a></li>
+                <li><a href="bricolage.html">Bricolage</a></li>
+                <li><a href="cuisine.html">Pose de cuisines</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="reparations.html">Réparations locatives</a></li>
+                <li><a href="contact.html" class="btn-contact-nav">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="services">
+        <div class="section-title animate">
+            <h2>Bricolage & Dépannage</h2>
+            <p>Des solutions rapides pour tous vos besoins quotidiens</p>
+        </div>
+        <div class="services-grid">
+            <!-- Bricolage -->
+            <div class="service-card animate">
+                <img src="images/bricolage.jpg" alt="Bricolage" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    </div>
+                    <h3>🔧 Bricolage Général</h3>
+                    <ul class="service-list">
+                        <li>Montage de meubles en kit</li>
+                        <li>Fixation d'étagères, cadres, miroirs</li>
+                        <li>Pose de tringles à rideaux</li>
+                        <li>Installation de TV murales</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Meuble simple</span><span>30 à 45 €</span></div>
+                        <div class="price-item"><span>Intervention/heure</span><span>35 €/h</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plomberie -->
+            <div class="service-card animate">
+                <img src="images/plomberie.jpg" alt="Plomberie" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"></path><path d="M11 12.3c0 2.2 1.8 4 4 4s4-1.8 4-4-1.8-4-4-4-4 1.8-4 4z"></path></svg>
+                    </div>
+                    <h3>🚿 Plomberie (Petits travaux)</h3>
+                    <ul class="service-list">
+                        <li>Remplacement de robinet</li>
+                        <li>Réparation chasse d'eau</li>
+                        <li>Débouchage simple</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Remplacement robinet</span><span>45 à 70 €</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Electricité -->
+            <div class="service-card animate">
+                <img src="images/electricite.jpg" alt="Electricité" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                    </div>
+                    <h3>⚡ Électricité</h3>
+                    <ul class="service-list">
+                        <li>Remplacement de prises/interrupteurs</li>
+                        <li>Pose de luminaires</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Pose luminaire</span><span>40 à 60 €</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Multi'CH</h3>
+                <p>Artisan bricoleur professionnel au Havre.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

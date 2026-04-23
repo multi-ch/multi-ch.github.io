@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réparations Locatives & Menuiserie - Multi'CH Le Havre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
+                <span>Multi'CH</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="decoration.html">Décoration</a></li>
+                <li><a href="bricolage.html">Bricolage</a></li>
+                <li><a href="cuisine.html">Pose de cuisines</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="reparations.html">Réparations locatives</a></li>
+                <li><a href="contact.html" class="btn-contact-nav">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="services">
+        <div class="section-title animate">
+            <h2>Réparations Locatives & Menuiserie</h2>
+            <p>Entretien et aménagement de votre logement</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate">
+                <img src="images/menuiserie.jpg" alt="Menuiserie" class="service-img">
+                <div class="service-info">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
+                    </div>
+                    <h3>🪚 Menuiserie & Aménagement</h3>
+                    <ul class="service-list">
+                        <li>Pose de parquet flottant et plinthes</li>
+                        <li>Construction de terrasse en bois</li>
+                        <li>Habillage de murs en lambris bois</li>
+                        <li>Installation de dressing</li>
+                        <li>Réparation et ajustement de portes</li>
+                    </ul>
+                    <div class="price-section">
+                        <h4>Tarifs indicatifs</h4>
+                        <div class="price-item"><span>Pose parquet</span><span>15 à 28 €/m²</span></div>
+                        <div class="price-item"><span>Ajustement porte</span><span>35 à 50 €</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Multi'CH</h3>
+                <p>Artisan bricoleur professionnel au Havre.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

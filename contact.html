@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Multi'CH Le Havre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
+                <span>Multi'CH</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="decoration.html">Décoration</a></li>
+                <li><a href="bricolage.html">Bricolage</a></li>
+                <li><a href="cuisine.html">Pose de cuisines</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="reparations.html">Réparations locatives</a></li>
+                <li><a href="contact.html" class="btn-contact-nav">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact" id="contact">
+        <div class="section-title animate">
+            <h2>Contactez-nous</h2>
+            <p>Demandez votre devis gratuit dès aujourd'hui</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info animate">
+                <h3>Parlons de votre projet</h3>
+                <p>Disponible du lundi au samedi pour toutes vos interventions au Havre et alentours.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <div>
+                            <strong>Téléphone</strong><br>
+                            <a href="tel:0780551298" style="color: white; text-decoration: none;">07 80 55 12 98</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Zone d'intervention</strong><br>
+                            Le Havre et alentours
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form animate">
+                <form>
+                    <div class="form-group">
+                        <label>Nom complet</label>
+                        <input type="text" placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" placeholder="Votre numéro">
+                    </div>
+                    <div class="form-group">
+                        <label>Type de service</label>
+                        <select>
+                            <option>Bricolage</option>
+                            <option>Plomberie</option>
+                            <option>Électricité</option>
+                            <option>Cuisine</option>
+                            <option>Menuiserie</option>
+                            <option>Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="Décrivez votre besoin..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Envoyer la demande</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Multi'CH</h3>
+                <p>Artisan bricoleur professionnel au Havre.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
