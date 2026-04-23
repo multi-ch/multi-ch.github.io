@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Décoration, Peinture & Pose de Sol - Multi'CH Le Havre</title>
+    <title>PEINTRE et POSEUR de PAPIER PEINT - Multi'CH Le Havre</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Background spécial pour la page décoration */
+        body {
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            background-attachment: fixed;
+        }
+        
+        .decoration-hero {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            padding: 4rem 2rem;
+            margin: 120px auto 2rem;
+            max-width: 1200px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
 <body>
 
@@ -27,81 +50,94 @@
         </nav>
     </header>
 
-    <section id="decoration-page">
-        <div class="section-title animate">
-            <h2>PEINTRE et POSEUR de PAPIER PEINT</h2>
-            <p>Services de décoration intérieure et extérieure au Havre</p>
+    <main>
+        <div class="decoration-hero animate">
+            <h1 style="color: #1e3a8a; font-size: 3rem; margin-bottom: 1rem;">PEINTRE et POSEUR de PAPIER PEINT</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted);">Artisan spécialisé en finitions intérieures et extérieures au Havre</p>
         </div>
 
-        <div class="services-grid">
-            <!-- Peinture et Papier Peint -->
-            <div class="service-card animate">
-                <img src="images/image1.jpg" alt="Travaux de peinture et papier peint" class="service-img">
-                <div class="service-info">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
+        <section id="services" style="padding-top: 2rem;">
+            <div class="services-grid">
+                <!-- Peinture Intérieure -->
+                <div class="service-card animate">
+                    <img src="images/image1.jpg" alt="Peinture intérieure" class="service-img">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
+                        </div>
+                        <h3>Peinture Intérieure</h3>
+                        <p>Travaux de peinture soignés sur boiseries, murs et plafonds pour redonner vie à vos pièces.</p>
                     </div>
-                    <h3>Peinture & Tapisserie</h3>
-                    <ul class="service-list">
-                        <li>Travaux de peinture intérieure sur boiserie, mur et plafond.</li>
-                        <li>Peinture extérieure de volet, portail et clôtures.</li>
-                        <li>Décollage et pose de vos papiers peints.</li>
-                        <li>Travaux de finitions, menuiserie et peinture.</li>
-                    </ul>
+                </div>
+
+                <!-- Peinture Extérieure -->
+                <div class="service-card animate">
+                    <img src="images/image2.jpg" alt="Peinture extérieure" class="service-img">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" width="15" height="14" rx="2" ry="2"></rect></svg>
+                        </div>
+                        <h3>Peinture Extérieure</h3>
+                        <p>Protection et esthétique pour vos volets, portails et clôtures avec des peintures adaptées.</p>
+                    </div>
+                </div>
+
+                <!-- Papier Peint -->
+                <div class="service-card animate">
+                    <img src="images/deco1.jpg" alt="Pose papier peint" class="service-img">
+                    <div class="service-info">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <h3>Papier Peint</h3>
+                        <p>Décollage soigné de l'ancien revêtement et pose précise de vos nouveaux papiers peints.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Pose de Parquet -->
-            <div class="service-card animate">
-                <img src="images/image2.jpg" alt="Pose de parquet stratifié" class="service-img">
-                <div class="service-info">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
-                    </div>
-                    <h3>Pose de parquet stratifié</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Je réalise la pose de votre sol stratifié en kit acheté en Grande Surface de Bricolage.</p>
-                </div>
+            <!-- Détails supplémentaires -->
+            <div class="price-section animate" style="max-width: 1200px; margin: 3rem auto; padding: 2rem; background: rgba(255,255,255,0.7);">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Pose de vos accessoires de décoration</h3>
+                <p style="margin-bottom: 1.5rem;">
+                    <strong>Homme à tout faire</strong> vous aide à votre installation et décoration suite à un déménagement. 
+                    Pose ou remplacement de vos équipements :
+                </p>
+                <ul class="service-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
+                    <li>Tringles à rideaux & stores</li>
+                    <li>Miroirs & étagères</li>
+                    <li>Têtes de lits</li>
+                    <li>Lampes en appliques & lustres</li>
+                    <li>Interrupteurs & plinthes</li>
+                </ul>
             </div>
-        </div>
 
-        <!-- Accessoires de décoration -->
-        <div class="price-section animate" style="max-width: 1200px; margin: 3rem auto; padding: 2rem;">
-            <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Pose de vos accessoires de décoration</h3>
-            <p style="margin-bottom: 1.5rem;">
-                <strong>Homme à tout faire</strong> vous aide à votre installation et décoration suite à un déménagement. 
-                Pose ou remplacement de vos équipements de confort et de décoration :
-            </p>
-            <ul class="service-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
-                <li>Tringles à rideaux & stores</li>
-                <li>Miroirs & étagères</li>
-                <li>Têtes de lits</li>
-                <li>Lampes en appliques & lustres</li>
-                <li>Interrupteurs</li>
-                <li>Plinthes & seuils de porte</li>
-            </ul>
-        </div>
+            <!-- Album Photo Section -->
+            <div class="section-title animate" style="margin-top: 4rem;">
+                <h2>Album Photos Décoration</h2>
+                <p>Nos réalisations en peinture et tapisserie</p>
+            </div>
+            <div class="gallery-grid animate" style="max-width: 1200px; margin: 0 auto 4rem;">
+                <div class="gallery-item"><img src="images/deco1.jpg" alt="Déco 1" onerror="this.parentElement.style.display='none'"></div>
+                <div class="gallery-item"><img src="images/deco2.jpg" alt="Déco 2" onerror="this.parentElement.style.display='none'"></div>
+                <div class="gallery-item"><img src="images/deco3.jpg" alt="Déco 3" onerror="this.parentElement.style.display='none'"></div>
+                <div class="gallery-item"><img src="images/deco4.jpg" alt="Déco 4" onerror="this.parentElement.style.display='none'"></div>
+                <div class="gallery-item"><img src="images/deco5.jpg" alt="Déco 5" onerror="this.parentElement.style.display='none'"></div>
+                <div class="gallery-item"><img src="images/deco6.jpg" alt="Déco 6" onerror="this.parentElement.style.display='none'"></div>
+            </div>
 
-        <!-- Conclusion / Appel à l'action -->
-        <div class="warning-box animate" style="max-width: 1200px; margin: 2rem auto; text-align: center; padding: 2rem;">
-            <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">Multiservices économiques</h4>
-            <p>Pour rafraîchir un logement à louer ou à vendre, ou vous aider à changer votre décoration intérieure.</p>
-            <a href="contact.html" class="btn btn-primary" style="margin-top: 1.5rem;">Demander un devis</a>
-        </div>
-    </section>
+            <div class="warning-box animate" style="max-width: 1200px; margin: 2rem auto; text-align: center; padding: 2rem; background: var(--primary-dark); color: white;">
+                <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">Multiservices économiques</h4>
+                <p>Idéal pour rafraîchir un logement à louer ou à vendre au Havre.</p>
+                <a href="contact.html" class="btn btn-primary" style="margin-top: 1.5rem; background: white; color: var(--primary-dark);">Demander un devis gratuit</a>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
                 <h3>Multi'CH</h3>
-                <p>Artisan bricoleur professionnel au Havre. Votre partenaire pour une décoration réussie.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="bricolage.html">Bricolage</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+                <p>Artisan peintre et décorateur au Havre.</p>
             </div>
         </div>
         <div class="footer-bottom">
