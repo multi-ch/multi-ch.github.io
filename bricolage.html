@@ -129,44 +129,31 @@
             padding: var(--section-py) var(--gap);
         }
 
-        /* Grille 2 colonnes avec la 3e en pleine largeur */
-        .prestations-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
+        /* Liste verticale identique à decoration.html */
+        .prestations-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5px;
+            border: 1px solid rgba(26,20,16,.1);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: rgba(26,20,16,.06);
             margin-top: 3.5rem;
         }
 
-        /* Carte prestation */
         .prest-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid rgba(26,20,16,.07);
-            transition: transform .25s var(--ease-out), box-shadow .25s, border-color .25s;
-        }
-
-        .prest-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: rgba(192,86,42,.2);
-        }
-
-        .prest-card-wide {
-            grid-column: span 2;
             display: grid;
-            grid-template-columns: 380px 1fr;
+            grid-template-columns: 260px 1fr;
+            background: var(--white);
+            transition: background .25s;
         }
+
+        .prest-card:hover { background: var(--rust-pale); }
 
         .prest-img {
             position: relative;
             overflow: hidden;
-            height: 240px;
-        }
-
-        .prest-card-wide .prest-img {
-            height: 100%;
-            min-height: 260px;
+            height: 220px;
         }
 
         .prest-img img {
@@ -177,7 +164,7 @@
         }
 
         .prest-card:hover .prest-img img {
-            transform: scale(1.05);
+            transform: scale(1.06);
         }
 
         /* Placeholder image */
@@ -193,14 +180,10 @@
         .prest-img .img-ph svg { opacity: .18; color: var(--rust); }
 
         .prest-body {
-            padding: 2rem 2.25rem;
-        }
-
-        .prest-card-wide .prest-body {
+            padding: 2.25rem 2.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 2.5rem 3rem;
         }
 
         .prest-number {
@@ -209,26 +192,33 @@
             letter-spacing: .12em;
             color: var(--rust);
             text-transform: uppercase;
-            margin-bottom: .5rem;
+            margin-bottom: .6rem;
         }
 
         .prest-body h3 {
-            font-size: 1.4rem;
+            font-family: var(--f-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ink);
             margin-bottom: .75rem;
+            letter-spacing: -.01em;
         }
 
         .prest-body > p {
-            font-size: .9rem;
+            color: var(--stone);
+            font-size: .95rem;
             line-height: 1.65;
-            margin-bottom: 1.5rem;
+            font-weight: 300;
+            max-width: 420px;
+            margin-bottom: 1.25rem;
         }
 
         /* Liste items */
         .prest-items {
             display: flex;
             flex-direction: column;
-            gap: .4rem;
-            margin-bottom: 1.75rem;
+            gap: .35rem;
+            margin-bottom: 1.25rem;
         }
 
         .prest-item {
@@ -395,13 +385,11 @@
 
         /* ── Responsive ── */
         @media (max-width: 900px) {
-            .prestations-grid { grid-template-columns: 1fr; }
-            .prest-card-wide {
-                grid-column: span 1;
+            .prest-card {
                 grid-template-columns: 1fr;
             }
-            .prest-card-wide .prest-img { height: 220px; min-height: unset; }
-            .prest-card-wide .prest-body { padding: 2rem 2.25rem; }
+            .prest-img { height: 200px; }
+            .prest-body { padding: 2rem 2.25rem; }
 
             .brico-gallery { grid-template-columns: repeat(2, 1fr); }
             .brico-gallery .g-item { height: 200px !important; }
@@ -479,10 +467,10 @@
         <p>Travaux petits et grands, urgences ou planifiés — nous intervenons avec le même sérieux.</p>
     </div>
 
-    <div class="prestations-grid">
+    <div class="prestations-list">
 
-        <!-- Bricolage général — carte large -->
-        <div class="prest-card prest-card-wide" data-reveal>
+        <!-- Bricolage général -->
+        <div class="prest-card" data-reveal>
             <div class="prest-img">
                 <img src="images/bricolage.jpg" alt="Bricolage général"
                      onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg></div>'">
@@ -550,8 +538,8 @@
             </div>
         </div>
 
-        <!-- Menuiserie — carte large -->
-        <div class="prest-card prest-card-wide" data-reveal>
+        <!-- Menuiserie -->
+        <div class="prest-card" data-reveal data-reveal-delay="3">
             <div class="prest-img">
                 <img src="images/menuiserie.jpg" alt="Menuiserie"
                      onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'7\' height=\'18\' rx=\'1\'/><rect x=\'14\' y=\'3\' width=\'7\' height=\'9\' rx=\'1\'/><rect x=\'14\' y=\'16\' width=\'7\' height=\'5\' rx=\'1\'/></svg></div>'">
