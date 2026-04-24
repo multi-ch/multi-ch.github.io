@@ -3,157 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEINTRE et POSEUR de PAPIER PEINT - Multi'CH Le Havre</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Peintre & Poseur de Papier Peint — Multi'CH Le Havre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Background spécial pour la page décoration */
-        body {
-            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-            background-attachment: fixed;
+        /* ── Styles spécifiques à la page Décoration ─── */
+
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: var(--sand);
+            position: relative;
+            overflow: hidden;
         }
-        
-        .decoration-hero {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            border-radius: 30px;
-            padding: 4rem 2rem;
-            margin: 120px auto 2rem;
-            max-width: 1200px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            text-align: center;
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none; opacity: .5;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -120px; bottom: -120px;
+            width: 480px; height: 480px;
+            border-radius: 50%;
+            background: var(--rust);
+            opacity: .06;
+        }
+        .hero-inner {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 var(--gap);
+            position: relative;
+            z-index: 1;
+        }
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--rust);
+            margin-bottom: 1.5rem;
+        }
+        .hero-label::before {
+            content: '';
+            display: block;
+            width: 28px; height: 2px;
+            background: var(--rust);
+        }
+        .hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); max-width: 800px; margin-bottom: 1.5rem; }
+        .hero h1 em { font-style: italic; color: var(--rust); }
+        .hero-sub { font-size: 1.1rem; max-width: 480px; margin-bottom: 2.5rem; }
+        .hero-actions { display: flex; align-items: center; gap: 1.25rem; }
+        .hero-bar {
+            margin-top: 5rem; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(26,20,16,.12) 30%, rgba(26,20,16,.12) 70%, transparent);
         }
 
-        .service-card {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .accessories-inner {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: var(--section-py) var(--gap);
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .accessories-text h2 { margin-bottom: 1.25rem; }
+        .accessories-text p  { margin-bottom: 2rem; }
+
+        .accessories-deco {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .accessories-deco::before {
+            content: 'D';
+            font-family: var(--f-display);
+            font-size: 22rem; font-weight: 900;
+            color: var(--rust); opacity: .06;
+            line-height: 1;
+            position: absolute;
+            user-select: none;
+        }
+        .accessories-deco-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-section {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: var(--section-py) var(--gap);
+        }
+        .gallery-section h2 { color: var(--white); }
+
+        @media (max-width: 900px) {
+            .accessories-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .accessories-deco  { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
-                <span>Multi'CH</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="decoration.html">Décoration</a></li>
-                <li><a href="bricolage.html">Bricolage</a></li>
-                <li><a href="cuisine.html">Pose de cuisines</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="reparations.html">Réparations locatives</a></li>
-                <li><a href="contact.html" class="btn-contact-nav">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- NAVIGATION -->
+<header>
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
+            Multi'CH
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="decoration.html" class="active">Décoration</a></li>
+            <li><a href="bricolage.html">Bricolage</a></li>
+            <li><a href="cuisine.html">Pose de cuisines</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="reparations.html">Réparations locatives</a></li>
+            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <main>
-        <div class="decoration-hero animate">
-            <h1 style="color: #1e3a8a; font-size: 3rem; margin-bottom: 1rem;">PEINTRE et POSEUR de PAPIER PEINT</h1>
-            <p style="font-size: 1.2rem; color: var(--text-muted);">Artisan spécialisé en finitions intérieures et extérieures au Havre</p>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <p class="hero-label" data-reveal>Artisan au Havre</p>
+        <h1 data-reveal data-reveal-delay="1">
+            Peintre &amp; poseur<br>de <em>papier peint</em>
+        </h1>
+        <p class="hero-sub" data-reveal data-reveal-delay="2">
+            Finitions intérieures et extérieures soignées. Travaux de qualité artisanale pour particuliers et bailleurs au Havre.
+        </p>
+        <div class="hero-actions" data-reveal data-reveal-delay="3">
+            <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+            <a href="#services" class="btn-ghost">
+                Nos services
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+    <div class="hero-bar"></div>
+</section>
+
+
+<!-- SERVICES -->
+<div class="section" id="services">
+    <div class="section-header" data-reveal>
+        <p class="section-label">Ce que nous faisons</p>
+        <h2>Nos prestations<br>de décoration</h2>
+    </div>
+
+    <div class="services-list">
+        <article class="svc-card" data-reveal>
+            <div class="svc-img-wrap">
+                <img src="images/image1.jpg" alt="Peinture intérieure" onerror="this.parentElement.innerHTML='<div class=placeholder><svg width=48 height=48 viewBox=\'0 0 24 24\' fill=none stroke=currentColor stroke-width=1><rect x=3 y=3 width=18 height=18 rx=2/></svg></div>'">
+            </div>
+            <div class="svc-body">
+                <p class="svc-number">01 — Intérieur</p>
+                <h3>Peinture Intérieure</h3>
+                <p>Travaux soignés sur boiseries, murs et plafonds. Préparation minutieuse des surfaces pour un résultat impeccable et durable.</p>
+            </div>
+        </article>
+
+        <article class="svc-card" data-reveal data-reveal-delay="1">
+            <div class="svc-img-wrap">
+                <img src="images/image2.jpg" alt="Peinture extérieure" onerror="this.parentElement.innerHTML='<div class=placeholder><svg width=48 height=48 viewBox=\'0 0 24 24\' fill=none stroke=currentColor stroke-width=1><path d=\'M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z\'/></svg></div>'">
+            </div>
+            <div class="svc-body">
+                <p class="svc-number">02 — Extérieur</p>
+                <h3>Peinture Extérieure</h3>
+                <p>Protection et esthétique pour vos volets, portails et clôtures. Peintures adaptées aux conditions climatiques havraises.</p>
+            </div>
+        </article>
+
+        <article class="svc-card" data-reveal data-reveal-delay="2">
+            <div class="svc-img-wrap">
+                <img src="images/image3.jpg" alt="Pose de papier peint" onerror="this.parentElement.innerHTML='<div class=placeholder><svg width=48 height=48 viewBox=\'0 0 24 24\' fill=none stroke=currentColor stroke-width=1><path d=\'M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z\'/></svg></div>'">
+            </div>
+            <div class="svc-body">
+                <p class="svc-number">03 — Tapisserie</p>
+                <h3>Papier Peint</h3>
+                <p>Décollage soigné de l'ancien revêtement et pose précise de vos nouveaux papiers peints. Raccords parfaits garantis.</p>
+            </div>
+        </article>
+    </div>
+</div>
+
+
+<!-- ACCESSOIRES -->
+<section class="bg-sand">
+    <div class="accessories-inner">
+        <div class="accessories-text" data-reveal>
+            <p class="section-label">Installation &amp; déménagement</p>
+            <h2>Pose de vos accessoires de décoration</h2>
+            <p>Nous vous accompagnons lors de votre installation suite à un déménagement. Remplacement ou pose de tous vos équipements.</p>
+            <div class="dot-list">
+                <div class="dot-item"><span class="dot"></span>Tringles à rideaux</div>
+                <div class="dot-item"><span class="dot"></span>Stores</div>
+                <div class="dot-item"><span class="dot"></span>Miroirs &amp; étagères</div>
+                <div class="dot-item"><span class="dot"></span>Têtes de lit</div>
+                <div class="dot-item"><span class="dot"></span>Lampes en appliques</div>
+                <div class="dot-item"><span class="dot"></span>Lustres</div>
+                <div class="dot-item"><span class="dot"></span>Interrupteurs</div>
+                <div class="dot-item"><span class="dot"></span>Plinthes</div>
+            </div>
         </div>
 
-        <section id="services" style="padding-top: 2rem;">
-            <div class="services-grid">
-                <!-- Peinture Intérieure -->
-                <div class="service-card animate">
-                    <img src="images/image1.jpg" alt="Peinture intérieure" class="service-img">
-                    <div class="service-info">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
-                        </div>
-                        <h3>Peinture Intérieure</h3>
-                        <p>Travaux de peinture soignés sur boiseries, murs et plafonds pour redonner vie à vos pièces.</p>
-                    </div>
+        <div class="accessories-deco" data-reveal data-reveal-delay="2">
+            <div class="accessories-deco-cards icon-cards">
+                <div class="icon-card">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <span>Intérieur</span>
                 </div>
-
-                <!-- Peinture Extérieure -->
-                <div class="service-card animate">
-                    <img src="images/image2.jpg" alt="Peinture extérieure" class="service-img">
-                    <div class="service-info">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" width="15" height="14" rx="2" ry="2"></rect></svg>
-                        </div>
-                        <h3>Peinture Extérieure</h3>
-                        <p>Protection et esthétique pour vos volets, portails et clôtures avec des peintures adaptées.</p>
-                    </div>
+                <div class="icon-card">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                    <span>Rapide</span>
                 </div>
-
-                <!-- Papier Peint -->
-                <div class="service-card animate">
-                    <img src="images/image3.jpg" alt="Pose papier peint" class="service-img">
-                    <div class="service-info">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                        </div>
-                        <h3>Papier Peint</h3>
-                        <p>Décollage soigné de l'ancien revêtement et pose précise de vos nouveaux papiers peints.</p>
-                    </div>
+                <div class="icon-card">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span>Soigné</span>
+                </div>
+                <div class="icon-card">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                    <span>Économique</span>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
 
-            <!-- Détails supplémentaires -->
-            <div class="price-section animate" style="max-width: 1200px; margin: 3rem auto; padding: 2rem; background: rgba(255,255,255,0.7);">
-                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Pose de vos accessoires de décoration</h3>
-                <p style="margin-bottom: 1.5rem;">
-                    <strong>Homme à tout faire</strong> vous aide à votre installation et décoration suite à un déménagement. 
-                    Pose ou remplacement de vos équipements :
-                </p>
-                <ul class="service-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
-                    <li>Tringles à rideaux & stores</li>
-                    <li>Miroirs & étagères</li>
-                    <li>Têtes de lits</li>
-                    <li>Lampes en appliques & lustres</li>
-                    <li>Interrupteurs & plinthes</li>
+
+<!-- GALERIE -->
+<section class="bg-dark">
+    <div class="gallery-section">
+        <p class="section-label" data-reveal>Nos réalisations</p>
+        <h2 data-reveal data-reveal-delay="1">Album photos<br>décoration</h2>
+
+        <div class="gallery-mosaic" style="margin-top: 3rem;" data-reveal data-reveal-delay="2">
+            <div class="g-item"><img src="images/deco1.jpg" alt="Réalisation 1" onerror="this.outerHTML='<div class=g-placeholder>Bientôt</div>'"></div>
+            <div class="g-item"><img src="images/deco2.jpg" alt="Réalisation 2" onerror="this.outerHTML='<div class=g-placeholder>Bientôt</div>'"></div>
+            <div class="g-item"><img src="images/deco3.jpg" alt="Réalisation 3" onerror="this.outerHTML='<div class=g-placeholder>Bientôt</div>'"></div>
+            <div class="g-item"><img src="images/deco4.jpg" alt="Réalisation 4" onerror="this.outerHTML='<div class=g-placeholder>Bientôt</div>'"></div>
+            <div class="g-item"><img src="images/deco5.jpg" alt="Réalisation 5" onerror="this.outerHTML='<div class=g-placeholder>Bientôt</div>'"></div>
+            <div class="g-item"><img src="images/deco6.jpg" alt="Réalisation 6" onerror="this.outerHTML='<div class=g-placeholder>Bientôt</div>'"></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- CTA -->
+<div class="cta-banner" data-reveal>
+    <div class="cta-text">
+        <h3>Rafraîchissez votre logement au Havre</h3>
+        <p>Idéal pour un bien à louer ou à vendre. Devis gratuit et sans engagement.</p>
+    </div>
+    <div class="cta-action">
+        <a href="contact.html" class="btn btn-white">Demander un devis gratuit</a>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            Multi'CH
+            <span>Artisan peintre &amp; décorateur — Le Havre</span>
+        </div>
+        <div class="footer-links-group">
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="decoration.html">Décoration</a></li>
+                    <li><a href="bricolage.html">Bricolage</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-
-            <!-- Album Photo Section -->
-            <div class="section-title animate" style="margin-top: 4rem;">
-                <h2>Album Photos Décoration</h2>
-                <p>Nos réalisations en peinture et tapisserie</p>
-            </div>
-            <div class="gallery-grid animate" style="max-width: 1200px; margin: 0 auto 4rem;">
-                <div class="gallery-item"><img src="images/deco1.jpg" alt="Déco 1" onerror="this.parentElement.style.display='none'"></div>
-                <div class="gallery-item"><img src="images/deco2.jpg" alt="Déco 2" onerror="this.parentElement.style.display='none'"></div>
-                <div class="gallery-item"><img src="images/deco3.jpg" alt="Déco 3" onerror="this.parentElement.style.display='none'"></div>
-                <div class="gallery-item"><img src="images/deco4.jpg" alt="Déco 4" onerror="this.parentElement.style.display='none'"></div>
-                <div class="gallery-item"><img src="images/deco5.jpg" alt="Déco 5" onerror="this.parentElement.style.display='none'"></div>
-                <div class="gallery-item"><img src="images/deco6.jpg" alt="Déco 6" onerror="this.parentElement.style.display='none'"></div>
-            </div>
-
-            <div class="warning-box animate" style="max-width: 1200px; margin: 2rem auto; text-align: center; padding: 2rem; background: var(--primary-dark); color: white;">
-                <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">Multiservices économiques</h4>
-                <p>Idéal pour rafraîchir un logement à louer ou à vendre au Havre.</p>
-                <a href="contact.html" class="btn btn-primary" style="margin-top: 1.5rem; background: white; color: var(--primary-dark);">Demander un devis gratuit</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h3>Multi'CH</h3>
-                <p>Artisan peintre et décorateur au Havre.</p>
+            <div class="footer-col">
+                <h4>Zones</h4>
+                <ul>
+                    <li><span>Le Havre (tous quartiers)</span></li>
+                    <li><span>Sainte-Cécile, Sanvic</span></li>
+                    <li><span>Graville, Montivilliers</span></li>
+                    <li><span>Ste-Adresse, Harfleur</span></li>
+                </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Multi'CH - Tous droits réservés.</p>
-        </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Multi'CH — Tous droits réservés</p>
+        <p>Artisan peintre &amp; décorateur au Havre (76600)</p>
+    </div>
+</footer>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-    </script>
+
+<!-- BOUTON AVIS GOOGLE -->
+<div class="google-review-floating">
+    <a href="https://g.page/r/CZeWXXByZa6vEAE/review" target="_blank" rel="noopener noreferrer" class="google-review-btn">
+        <div class="google-icon">G</div>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <span class="btn-text">Laisser un avis</span>
+    </a>
+</div>
+
+
+<!-- SCROLL REVEAL -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
