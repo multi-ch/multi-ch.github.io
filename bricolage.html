@@ -3,117 +3,737 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bricolage, Plomberie & Électricité - Multi'CH Le Havre</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Multi'CH — Bricolage, plomberie, électricité et menuiserie au Havre. Dépannage rapide à domicile. Devis gratuit. 07 80 55 12 98">
+    <meta name="keywords" content="bricoleur Havre, montage meuble Havre, plomberie Havre, électricité Havre, dépannage domicile 76600">
+    <meta name="robots" content="index, follow">
+    <title>Bricolage & Dépannage — Multi'CH Le Havre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ══════════════════════════════════════════
+           STYLES SPÉCIFIQUES — bricolage.html
+           ══════════════════════════════════════════ */
+
+        /* ── Hero ── */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: var(--sand);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: .5;
+        }
+
+        /* Cercles décoratifs */
+        .hero-deco-1 {
+            position: absolute;
+            right: -80px; top: -80px;
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            border: 1px solid rgba(192,86,42,.1);
+            pointer-events: none;
+        }
+
+        .hero-deco-2 {
+            position: absolute;
+            right: 30px; top: 30px;
+            width: 260px; height: 260px;
+            border-radius: 50%;
+            background: rgba(192,86,42,.04);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 var(--gap);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--rust);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-label::before {
+            content: '';
+            display: block;
+            width: 28px; height: 2px;
+            background: var(--rust);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--rust);
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-tel {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .9rem;
+            font-weight: 600;
+            color: var(--ink);
+            transition: color .2s;
+        }
+
+        .hero-tel:hover { color: var(--rust); }
+        .hero-tel svg { color: var(--rust); }
+
+        .hero-bar {
+            margin-top: 5rem;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(26,20,16,.12) 30%, rgba(26,20,16,.12) 70%, transparent);
+        }
+
+        /* ── Prestations ── */
+        .prestations-section {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: var(--section-py) var(--gap);
+        }
+
+        /* Grille 2 colonnes avec la 3e en pleine largeur */
+        .prestations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 3.5rem;
+        }
+
+        /* Carte prestation */
+        .prest-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(26,20,16,.07);
+            transition: transform .25s var(--ease-out), box-shadow .25s, border-color .25s;
+        }
+
+        .prest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(192,86,42,.2);
+        }
+
+        .prest-card-wide {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+        }
+
+        .prest-img {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+
+        .prest-card-wide .prest-img {
+            height: 100%;
+            min-height: 260px;
+        }
+
+        .prest-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s var(--ease-out);
+        }
+
+        .prest-card:hover .prest-img img {
+            transform: scale(1.05);
+        }
+
+        /* Placeholder image */
+        .prest-img .img-ph {
+            width: 100%;
+            height: 100%;
+            background: var(--sand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prest-img .img-ph svg { opacity: .18; color: var(--rust); }
+
+        .prest-body {
+            padding: 2rem 2.25rem;
+        }
+
+        .prest-card-wide .prest-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2.5rem 3rem;
+        }
+
+        .prest-number {
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            color: var(--rust);
+            text-transform: uppercase;
+            margin-bottom: .5rem;
+        }
+
+        .prest-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: .75rem;
+        }
+
+        .prest-body > p {
+            font-size: .9rem;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Liste items */
+        .prest-items {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .prest-item {
+            display: flex;
+            align-items: center;
+            gap: .65rem;
+            font-size: .875rem;
+            color: var(--ink);
+            font-weight: 400;
+        }
+
+        .prest-item::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--rust);
+            flex-shrink: 0;
+        }
+
+        /* Tarif pill */
+        .prest-tarif {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--rust-pale);
+            border: 1px solid rgba(192,86,42,.18);
+            border-radius: var(--radius-pill);
+            padding: .45rem 1rem;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--rust-dark);
+        }
+
+        .prest-tarifs {
+            display: flex;
+            gap: .6rem;
+            flex-wrap: wrap;
+        }
+
+        /* ── Urgence bandeau ── */
+        .urgence-band {
+            background: var(--ink);
+            padding: 3rem var(--gap);
+        }
+
+        .urgence-inner {
+            max-width: var(--container);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .urgence-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .urgence-icon {
+            width: 56px; height: 56px;
+            background: rgba(192,86,42,.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rust);
+            flex-shrink: 0;
+        }
+
+        .urgence-text h3 {
+            font-family: var(--f-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: .3rem;
+        }
+
+        .urgence-text p {
+            font-size: .875rem;
+            color: rgba(255,255,255,.5);
+            margin: 0;
+        }
+
+        /* ── Galerie ── */
+        .galerie-section {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: var(--section-py) var(--gap);
+        }
+
+        /* Grille masonry-like 3 colonnes */
+        .brico-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .85rem;
+            margin-top: 3rem;
+        }
+
+        /* Variations de hauteur */
+        .brico-gallery .g-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            background: var(--sand);
+        }
+
+        .brico-gallery .g-item:nth-child(1) { height: 280px; }
+        .brico-gallery .g-item:nth-child(2) { height: 200px; }
+        .brico-gallery .g-item:nth-child(3) { height: 240px; }
+        .brico-gallery .g-item:nth-child(4) { height: 220px; }
+        .brico-gallery .g-item:nth-child(5) { height: 280px; }
+        .brico-gallery .g-item:nth-child(6) { height: 200px; }
+        .brico-gallery .g-item:nth-child(7) { height: 240px; }
+        .brico-gallery .g-item:nth-child(8) { height: 200px; }
+        .brico-gallery .g-item:nth-child(9) { height: 260px; }
+
+        .brico-gallery .g-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s var(--ease-out);
+            display: block;
+        }
+
+        .brico-gallery .g-item:hover img {
+            transform: scale(1.07);
+        }
+
+        /* Overlay au hover */
+        .brico-gallery .g-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(192,86,42,.0);
+            transition: background .3s;
+            pointer-events: none;
+        }
+
+        .brico-gallery .g-item:hover::after {
+            background: rgba(192,86,42,.12);
+        }
+
+        /* Placeholder si image absente */
+        .brico-gallery .g-ph {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            color: var(--stone);
+            background: var(--sand);
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .brico-gallery .g-ph svg { opacity: .25; color: var(--rust); }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .prestations-grid { grid-template-columns: 1fr; }
+            .prest-card-wide {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+            .prest-card-wide .prest-img { height: 220px; min-height: unset; }
+            .prest-card-wide .prest-body { padding: 2rem 2.25rem; }
+
+            .brico-gallery { grid-template-columns: repeat(2, 1fr); }
+            .brico-gallery .g-item { height: 200px !important; }
+
+            .urgence-inner { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 600px) {
+            .brico-gallery { grid-template-columns: 1fr; }
+            .brico-gallery .g-item { height: 220px !important; }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
-                <span>Multi'CH</span>
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════════ -->
+<header>
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
+            Multi'CH
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="decoration.html">Décoration</a></li>
+            <li><a href="bricolage.html" class="active">Bricolage</a></li>
+            <li><a href="cuisine.html">Pose de cuisines</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="reparations.html">Réparations locatives</a></li>
+            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════ -->
+<section class="hero">
+    <div class="hero-deco-1"></div>
+    <div class="hero-deco-2"></div>
+
+    <div class="hero-inner">
+        <p class="hero-label" data-reveal>Artisan au Havre</p>
+
+        <h1 data-reveal data-reveal-delay="1">
+            Bricolage &amp;<br><em>dépannage</em><br>à domicile
+        </h1>
+
+        <p class="hero-sub" data-reveal data-reveal-delay="2">
+            Montage de meubles, plomberie, électricité, menuiserie. Intervention rapide et soignée dans tous les quartiers du Havre.
+        </p>
+
+        <div class="hero-actions" data-reveal data-reveal-delay="3">
+            <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+            <a href="tel:0780551298" class="hero-tel">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-.52a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                07 80 55 12 98
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="decoration.html">Décoration</a></li>
-                <li><a href="bricolage.html">Bricolage</a></li>
-                <li><a href="cuisine.html">Pose de cuisines</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="reparations.html">Réparations locatives</a></li>
-                <li><a href="contact.html" class="btn-contact-nav">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="services">
-        <div class="section-title animate">
-            <h2>Bricolage & Dépannage</h2>
-            <p>Des solutions rapides pour tous vos besoins quotidiens</p>
         </div>
-        <div class="services-grid">
-            <!-- Bricolage -->
-            <div class="service-card animate">
-                <img src="images/bricolage.jpg" alt="Bricolage" class="service-img">
-                <div class="service-info">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                    </div>
-                    <h3>🔧 Bricolage Général</h3>
-                    <ul class="service-list">
-                        <li>Montage de meubles en kit</li>
-                        <li>Fixation d'étagères, cadres, miroirs</li>
-                        <li>Pose de tringles à rideaux</li>
-                        <li>Installation de TV murales</li>
-                    </ul>
-                    <div class="price-section">
-                        <h4>Tarifs indicatifs</h4>
-                        <div class="price-item"><span>Meuble simple</span><span>30 à 45 €</span></div>
-                        <div class="price-item"><span>Intervention/heure</span><span>35 €/h</span></div>
-                    </div>
-                </div>
-            </div>
+    </div>
+    <div class="hero-bar"></div>
+</section>
 
-            <!-- Plomberie -->
-            <div class="service-card animate">
-                <img src="images/plomberie.jpg" alt="Plomberie" class="service-img">
-                <div class="service-info">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"></path><path d="M11 12.3c0 2.2 1.8 4 4 4s4-1.8 4-4-1.8-4-4-4-4 1.8-4 4z"></path></svg>
-                    </div>
-                    <h3>🚿 Plomberie (Petits travaux)</h3>
-                    <ul class="service-list">
-                        <li>Remplacement de robinet</li>
-                        <li>Réparation chasse d'eau</li>
-                        <li>Débouchage simple</li>
-                    </ul>
-                    <div class="price-section">
-                        <h4>Tarifs indicatifs</h4>
-                        <div class="price-item"><span>Remplacement robinet</span><span>45 à 70 €</span></div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Electricité -->
-            <div class="service-card animate">
-                <img src="images/electricite.jpg" alt="Electricité" class="service-img">
-                <div class="service-info">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-                    </div>
-                    <h3>⚡ Électricité</h3>
-                    <ul class="service-list">
-                        <li>Remplacement de prises/interrupteurs</li>
-                        <li>Pose de luminaires</li>
-                    </ul>
-                    <div class="price-section">
-                        <h4>Tarifs indicatifs</h4>
-                        <div class="price-item"><span>Pose luminaire</span><span>40 à 60 €</span></div>
-                    </div>
+<!-- ══════════════════════════════════════════
+     PRESTATIONS
+     ══════════════════════════════════════════ -->
+<div class="prestations-section" id="services">
+    <div class="section-header" data-reveal>
+        <p class="section-label">Nos domaines d'intervention</p>
+        <h2>Tout ce que nous<br>pouvons faire pour vous</h2>
+        <p>Travaux petits et grands, urgences ou planifiés — nous intervenons avec le même sérieux.</p>
+    </div>
+
+    <div class="prestations-grid">
+
+        <!-- Bricolage général — carte large -->
+        <div class="prest-card prest-card-wide" data-reveal>
+            <div class="prest-img">
+                <img src="images/bricolage.jpg" alt="Bricolage général"
+                     onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg></div>'">
+            </div>
+            <div class="prest-body">
+                <p class="prest-number">01 — Bricolage</p>
+                <h3>Bricolage Général</h3>
+                <p>De la simple fixation au montage complexe, nous prenons en charge tous vos besoins du quotidien avec soin et rapidité.</p>
+                <div class="prest-items">
+                    <div class="prest-item">Montage de meubles en kit</div>
+                    <div class="prest-item">Fixation d'étagères, cadres, miroirs</div>
+                    <div class="prest-item">Pose de tringles à rideaux &amp; stores</div>
+                    <div class="prest-item">Installation de TV murales</div>
+                    <div class="prest-item">Assemblage de mobilier de jardin</div>
+                </div>
+                <div class="prest-tarifs">
+                    <span class="prest-tarif">Meuble simple — 30 à 45 €</span>
+                    <span class="prest-tarif">Intervention — 35 €/h</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h3>Multi'CH</h3>
-                <p>Artisan bricoleur professionnel au Havre.</p>
+        <!-- Plomberie -->
+        <div class="prest-card" data-reveal data-reveal-delay="1">
+            <div class="prest-img">
+                <img src="images/plomberie.jpg" alt="Plomberie"
+                     onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M7 16.3c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z\'/><path d=\'M11 12.3c0 2.2 1.8 4 4 4s4-1.8 4-4-1.8-4-4-4-4 1.8-4 4z\'/></svg></div>'">
+            </div>
+            <div class="prest-body">
+                <p class="prest-number">02 — Plomberie</p>
+                <h3>Plomberie (Petits travaux)</h3>
+                <p>Dépannages courants et petites réparations pour maintenir votre installation en parfait état.</p>
+                <div class="prest-items">
+                    <div class="prest-item">Remplacement de robinet</div>
+                    <div class="prest-item">Réparation chasse d'eau</div>
+                    <div class="prest-item">Débouchage simple</div>
+                    <div class="prest-item">Remplacement de joint</div>
+                    <div class="prest-item">Pose de mitigeur</div>
+                </div>
+                <div class="prest-tarifs">
+                    <span class="prest-tarif">Remplacement robinet — 45 à 70 €</span>
+                </div>
             </div>
         </div>
-    </footer>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-    </script>
+        <!-- Électricité -->
+        <div class="prest-card" data-reveal data-reveal-delay="2">
+            <div class="prest-img">
+                <img src="images/electricite.jpg" alt="Électricité"
+                     onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M13 2L3 14h9l-1 8 10-12h-9l1-8z\'/></svg></div>'">
+            </div>
+            <div class="prest-body">
+                <p class="prest-number">03 — Électricité</p>
+                <h3>Électricité</h3>
+                <p>Petits travaux électriques courants pour améliorer ou réparer votre installation en toute sécurité.</p>
+                <div class="prest-items">
+                    <div class="prest-item">Remplacement de prises &amp; interrupteurs</div>
+                    <div class="prest-item">Pose et remplacement de luminaires</div>
+                    <div class="prest-item">Installation de spots encastrés</div>
+                    <div class="prest-item">Pose d'appliques murales</div>
+                </div>
+                <div class="prest-tarifs">
+                    <span class="prest-tarif">Pose luminaire — 40 à 60 €</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menuiserie — carte large -->
+        <div class="prest-card prest-card-wide" data-reveal>
+            <div class="prest-img">
+                <img src="images/menuiserie.jpg" alt="Menuiserie"
+                     onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'7\' height=\'18\' rx=\'1\'/><rect x=\'14\' y=\'3\' width=\'7\' height=\'9\' rx=\'1\'/><rect x=\'14\' y=\'16\' width=\'7\' height=\'5\' rx=\'1\'/></svg></div>'">
+            </div>
+            <div class="prest-body">
+                <p class="prest-number">04 — Menuiserie</p>
+                <h3>Menuiserie &amp; Finitions</h3>
+                <p>Travaux de menuiserie légère pour améliorer, réparer ou finaliser l'aménagement de vos espaces intérieurs.</p>
+                <div class="prest-items">
+                    <div class="prest-item">Pose de plinthes et baguettes</div>
+                    <div class="prest-item">Remplacement de serrure &amp; poignée</div>
+                    <div class="prest-item">Réglage de portes et fenêtres</div>
+                    <div class="prest-item">Pose de parquet flottant</div>
+                    <div class="prest-item">Installation de placards</div>
+                </div>
+                <div class="prest-tarifs">
+                    <span class="prest-tarif">Pose de plinthes — 25 à 40 €</span>
+                    <span class="prest-tarif">Remplacement serrure — 50 à 80 €</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     BANDEAU URGENCE
+     ══════════════════════════════════════════ -->
+<div class="urgence-band" data-reveal>
+    <div class="urgence-inner">
+        <div class="urgence-left">
+            <div class="urgence-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="urgence-text">
+                <h3>Dépannage urgent ?</h3>
+                <p>Intervention rapide — réponse dans la journée dans tout Le Havre et alentours.</p>
+            </div>
+        </div>
+        <a href="tel:0780551298" class="btn btn-primary">
+            📞 07 80 55 12 98
+        </a>
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     ALBUM PHOTO RÉALISATIONS
+     ══════════════════════════════════════════ -->
+<div class="galerie-section" id="galerie">
+    <div class="section-header" data-reveal>
+        <p class="section-label">Nos réalisations</p>
+        <h2>Album photos<br>bricolage &amp; dépannage</h2>
+        <p>Quelques exemples de travaux réalisés chez nos clients au Havre.</p>
+    </div>
+
+    <div class="brico-gallery" data-reveal data-reveal-delay="1">
+
+        <div class="g-item">
+            <img src="images/brico1.jpg" alt="Réalisation bricolage 1"
+                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+        </div>
+
+        <div class="g-item">
+            <img src="images/brico2.jpg" alt="Réalisation bricolage 2"
+                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+        </div>
+
+        <div class="g-item">
+            <img src="images/brico3.jpg" alt="Réalisation bricolage 3"
+                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+        </div>
+
+        <div class="g-item">
+            <img src="images/brico4.jpg" alt="Réalisation bricolage 4"
+                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+        </div>
+
+        <div class="g-item">
+            <img src="images/brico5.jpg" alt="Réalisation bricolage 5"
+                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+        </div>
+
+        <div class="g-item">
+            <img src="images/brico6.jpg" alt="Réalisation bricolage 6"
+                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+        </div>
+
+        <div class="g-item">
+            <img src="images/brico7.jpg" alt="Réalisation bricolage 7"
+                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+        </div>
+
+        <div class="g-item">
+            <img src="images/brico8.jpg" alt="Réalisation bricolage 8"
+                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+        </div>
+
+        <div class="g-item">
+            <img src="images/brico9.jpg" alt="Réalisation bricolage 9"
+                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CTA FINAL
+     ══════════════════════════════════════════ -->
+<div class="cta-banner" data-reveal>
+    <div class="cta-text">
+        <h3>Un travail à confier ?<br>Contactez-nous</h3>
+        <p>Devis gratuit, réponse rapide. Intervention dans tout Le Havre et alentours.</p>
+    </div>
+    <div class="cta-action">
+        <a href="contact.html" class="btn btn-white">Demander un devis gratuit</a>
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            Multi'CH
+            <span>Artisan bricoleur multiservices — Le Havre</span>
+        </div>
+        <div class="footer-links-group">
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="decoration.html">Décoration</a></li>
+                    <li><a href="bricolage.html">Bricolage</a></li>
+                    <li><a href="cuisine.html">Pose de cuisines</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Zones</h4>
+                <ul>
+                    <li><span>Le Havre — tous quartiers</span></li>
+                    <li><span>Montivilliers, Harfleur</span></li>
+                    <li><span>Ste-Adresse, Octeville</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Multi'CH — Tous droits réservés</p>
+        <p>Artisan bricoleur au Havre (76600)</p>
+    </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     BOUTON AVIS GOOGLE
+     ══════════════════════════════════════════ -->
+<div class="google-review-floating">
+    <a href="https://g.page/r/CZeWXXByZa6vEAE/review" target="_blank" rel="noopener noreferrer" class="google-review-btn">
+        <div class="google-icon">G</div>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <span class="btn-text">Laisser un avis</span>
+    </a>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SCROLL REVEAL
+     ══════════════════════════════════════════ -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
