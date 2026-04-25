@@ -1214,7 +1214,150 @@ footer { background: var(--ink); padding: 3rem var(--gap); }
     .about-stats-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* ============================================================
+   STYLES SPÉCIFIQUES : PAGE CONTACT
+   ============================================================ */
 
+.contact-section {
+    padding: var(--section-py) 0;
+    background: var(--white);
+}
+
+.contact-grid {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    padding: 0 1.5rem;
+}
+
+.contact-info h3 {
+    font-family: var(--f-display);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+}
+
+.contact-details {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+}
+
+.contact-item .icon-box {
+    font-size: 1.5rem;
+    background: var(--sand);
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.contact-item strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    color: var(--ink);
+}
+
+/* Style du Formulaire */
+.contact-form {
+    background: var(--cream);
+    padding: 3rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--stone);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(26, 20, 16, 0.1);
+    border-radius: var(--radius-sm);
+    font-family: var(--f-body);
+    font-size: 1rem;
+    transition: all 0.3s var(--ease-out);
+    background: var(--white);
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--rust);
+    box-shadow: 0 0 0 3px var(--rust-pale);
+}
+
+.btn-submit {
+    width: 100%;
+    background: var(--ink);
+    color: var(--white);
+    padding: 1.2rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-submit:hover {
+    background: var(--rust);
+    transform: translateY(-2px);
+}
+
+.form-success {
+    display: none;
+    background: #e7f3ef;
+    color: #2d5a4c;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.5rem;
+    border: 1px solid #c3e6cb;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .contact-form {
+        padding: 2rem 1.5rem;
+    }
+    .contact-info h3 {
+        font-size: 1.8rem;
+    }
+}
 /* ============================================================
    15. SCRIPT MENU MOBILE (à inclure dans chaque page HTML)
    ============================================================
