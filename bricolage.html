@@ -7,10 +7,17 @@
     <meta name="keywords" content="bricoleur Havre, montage meuble Havre, plomberie Havre, électricité Havre, dépannage domicile 76600">
     <meta name="robots" content="index, follow">
     <title>Bricolage & Dépannage — Multi'CH Le Havre</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ── Correctif burger visible sur fond clair ── */
+        .nav-toggle span {
+            background: var(--ink) !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,6 +30,8 @@
             <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
             Multi'CH
         </a>
+
+        <!-- Liens desktop -->
         <ul class="nav-links">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="decoration.html">Décoration</a></li>
@@ -32,141 +41,174 @@
             <li><a href="reparations.html">Réparations locatives</a></li>
             <li><a href="contact.html" class="nav-cta">Contact</a></li>
         </ul>
+
+        <!-- Burger mobile -->
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 </header>
+
+<!-- Overlay menu mobile -->
+<div class="nav-mobile" role="dialog" aria-label="Menu de navigation">
+    <ul class="nav-mobile-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="decoration.html">Décoration</a></li>
+        <li><a href="bricolage.html" class="active">Bricolage</a></li>
+        <li><a href="cuisine.html">Pose de cuisines</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="reparations.html">Réparations locatives</a></li>
+        <li><a href="contact.html" class="nav-mobile-cta">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-footer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63a19.79 19.79 0 01-3.07-8.6A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.09 6.09l1.27-.53a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        07 80 55 12 98
+    </div>
+</div>
 
 
 <!-- ══════════════════════════════════════════
      HERO
      ══════════════════════════════════════════ -->
-<section class="hero">
-    <div class="hero-deco-1"></div>
-    <div class="hero-deco-2"></div>
+<section class="hero" style="min-height: 60vh; padding-top: 100px; padding-bottom: 60px;">
+    <div class="hero-circle"></div>
 
-    <div class="hero-inner">
-        <p class="hero-label" data-reveal>Artisan au Havre</p>
+    <div class="hero-grid" style="grid-template-columns: 1fr;">
+        <div class="hero-content">
+            <p class="hero-eyebrow" data-reveal>Artisan au Havre</p>
 
-        <h1 data-reveal data-reveal-delay="1">
-            Bricolage &amp;<br><em>dépannage</em><br>à domicile
-        </h1>
+            <h1 data-reveal data-reveal-delay="1">
+                Bricolage &amp;<br><em>dépannage</em><br>à domicile
+            </h1>
 
-        <p class="hero-sub" data-reveal data-reveal-delay="2">
-            Montage de meubles, plomberie, électricité, menuiserie. Intervention rapide et soignée dans tous les quartiers du Havre.
-        </p>
+            <p class="hero-desc" data-reveal data-reveal-delay="2">
+                Montage de meubles, plomberie, électricité, menuiserie. Intervention rapide et soignée dans tous les quartiers du Havre.
+            </p>
 
-        <div class="hero-actions" data-reveal data-reveal-delay="3">
-            <a href="contact.html" class="btn btn-primary">Demander un devis</a>
-            <a href="tel:0780551298" class="hero-tel">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-.52a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                07 80 55 12 98
-            </a>
+            <div class="hero-actions" data-reveal data-reveal-delay="3">
+                <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                <a href="tel:0780551298" class="hero-tel">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63a19.79 19.79 0 01-3.07-8.6A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.09 6.09l1.27-.53a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                    </svg>
+                    07 80 55 12 98
+                </a>
+            </div>
         </div>
     </div>
-    <div class="hero-bar"></div>
 </section>
 
 
 <!-- ══════════════════════════════════════════
      PRESTATIONS
      ══════════════════════════════════════════ -->
-<div class="prestations-section" id="services">
+<div class="section" id="services">
     <div class="section-header" data-reveal>
         <p class="section-label">Nos domaines d'intervention</p>
         <h2>Tout ce que nous<br>pouvons faire pour vous</h2>
         <p>Travaux petits et grands, urgences ou planifiés — nous intervenons avec le même sérieux.</p>
     </div>
 
-    <div class="prestations-list">
+    <div class="services-list">
 
         <!-- Bricolage général -->
-        <div class="prest-card" data-reveal>
-            <div class="prest-img">
+        <div class="svc-card" data-reveal>
+            <div class="svc-img-wrap">
                 <img src="images/bricolage.jpg" alt="Bricolage général"
-                     onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg></div>'">
+                     onerror="this.outerHTML='<div class=placeholder><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg></div>'">
             </div>
-            <div class="prest-body">
-                <p class="prest-number">01 — Bricolage</p>
+            <div class="svc-body">
+                <p class="svc-number">01 — Bricolage</p>
                 <h3>Bricolage Général</h3>
                 <p>De la simple fixation au montage complexe, nous prenons en charge tous vos besoins du quotidien avec soin et rapidité.</p>
-                <div class="prest-items">
-                    <div class="prest-item">Montage de meubles en kit</div>
-                    <div class="prest-item">Fixation d'étagères, cadres, miroirs</div>
-                    <div class="prest-item">Pose de tringles à rideaux &amp; stores</div>
-                    <div class="prest-item">Installation de TV murales</div>
-                    <div class="prest-item">Assemblage de mobilier de jardin</div>
+                <div class="dot-list" style="margin-top: 1rem;">
+                    <div class="dot-item"><span class="dot"></span>Montage de meubles en kit</div>
+                    <div class="dot-item"><span class="dot"></span>Fixation d'étagères, cadres, miroirs</div>
+                    <div class="dot-item"><span class="dot"></span>Pose de tringles à rideaux &amp; stores</div>
+                    <div class="dot-item"><span class="dot"></span>Installation de TV murales</div>
+                    <div class="dot-item"><span class="dot"></span>Assemblage de mobilier de jardin</div>
+                    <div class="dot-item"><span class="dot"></span>Déplacement offert au Havre</div>
                 </div>
-                <div class="prest-tarifs">
-                    <span class="prest-tarif">Meuble simple — 30 à 45 €</span>
-                    <span class="prest-tarif">Intervention — 35 €/h</span>
+                <div style="margin-top: 1.25rem; display: flex; gap: .6rem; flex-wrap: wrap;">
+                    <span style="display:inline-flex;align-items:center;gap:.5rem;background:var(--rust-pale);border:1px solid rgba(192,86,42,.18);border-radius:var(--radius-pill);padding:.45rem 1rem;font-size:.8rem;font-weight:600;color:var(--rust-dark);">Meuble simple : 30 à 45 €</span>
+                    <span style="display:inline-flex;align-items:center;gap:.5rem;background:var(--rust-pale);border:1px solid rgba(192,86,42,.18);border-radius:var(--radius-pill);padding:.45rem 1rem;font-size:.8rem;font-weight:600;color:var(--rust-dark);">Intervention : 35 €/h</span>
                 </div>
             </div>
         </div>
 
         <!-- Plomberie -->
-        <div class="prest-card" data-reveal data-reveal-delay="1">
-            <div class="prest-img">
+        <div class="svc-card" data-reveal data-reveal-delay="1">
+            <div class="svc-img-wrap">
                 <img src="images/plomberie.jpg" alt="Plomberie"
-                     onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M7 16.3c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z\'/><path d=\'M11 12.3c0 2.2 1.8 4 4 4s4-1.8 4-4-1.8-4-4-4-4 1.8-4 4z\'/></svg></div>'">
+                     onerror="this.outerHTML='<div class=placeholder><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M12 2a5 5 0 015 5c0 5-5 13-5 13S7 12 7 7a5 5 0 015-5z\'/><circle cx=\'12\' cy=\'7\' r=\'2\'/></svg></div>'">
             </div>
-            <div class="prest-body">
-                <p class="prest-number">02 — Plomberie</p>
+            <div class="svc-body">
+                <p class="svc-number">02 — Plomberie</p>
                 <h3>Plomberie (Petits travaux)</h3>
                 <p>Dépannages courants et petites réparations pour maintenir votre installation en parfait état.</p>
-                <div class="prest-items">
-                    <div class="prest-item">Remplacement de robinet</div>
-                    <div class="prest-item">Réparation chasse d'eau</div>
-                    <div class="prest-item">Débouchage simple</div>
-                    <div class="prest-item">Remplacement de joint</div>
-                    <div class="prest-item">Pose de mitigeur</div>
+                <div class="dot-list" style="margin-top: 1rem;">
+                    <div class="dot-item"><span class="dot"></span>Remplacement de robinet</div>
+                    <div class="dot-item"><span class="dot"></span>Réparation chasse d'eau</div>
+                    <div class="dot-item"><span class="dot"></span>Débouchage simple</div>
+                    <div class="dot-item"><span class="dot"></span>Remplacement de joint</div>
+                    <div class="dot-item"><span class="dot"></span>Pose de mitigeur</div>
+                    <div class="dot-item"><span class="dot"></span>Joint silicone douche &amp; baignoire</div>
                 </div>
-                <div class="prest-tarifs">
-                    <span class="prest-tarif">Remplacement robinet — 45 à 70 €</span>
+                <div style="margin-top: 1.25rem; display: flex; gap: .6rem; flex-wrap: wrap;">
+                    <span style="display:inline-flex;align-items:center;gap:.5rem;background:var(--rust-pale);border:1px solid rgba(192,86,42,.18);border-radius:var(--radius-pill);padding:.45rem 1rem;font-size:.8rem;font-weight:600;color:var(--rust-dark);">Remplacement robinet : 45 à 70 €</span>
                 </div>
             </div>
         </div>
 
         <!-- Électricité -->
-        <div class="prest-card" data-reveal data-reveal-delay="2">
-            <div class="prest-img">
+        <div class="svc-card" data-reveal data-reveal-delay="2">
+            <div class="svc-img-wrap">
                 <img src="images/electricite.jpg" alt="Électricité"
-                     onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M13 2L3 14h9l-1 8 10-12h-9l1-8z\'/></svg></div>'">
+                     onerror="this.outerHTML='<div class=placeholder><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M13 2L3 14h9l-1 8 10-12h-9l1-8z\'/></svg></div>'">
             </div>
-            <div class="prest-body">
-                <p class="prest-number">03 — Électricité</p>
+            <div class="svc-body">
+                <p class="svc-number">03 — Électricité</p>
                 <h3>Électricité</h3>
                 <p>Petits travaux électriques courants pour améliorer ou réparer votre installation en toute sécurité.</p>
-                <div class="prest-items">
-                    <div class="prest-item">Remplacement de prises &amp; interrupteurs</div>
-                    <div class="prest-item">Pose et remplacement de luminaires</div>
-                    <div class="prest-item">Installation de spots encastrés</div>
-                    <div class="prest-item">Pose d'appliques murales</div>
+                <div class="dot-list" style="margin-top: 1rem;">
+                    <div class="dot-item"><span class="dot"></span>Remplacement de prises &amp; interrupteurs</div>
+                    <div class="dot-item"><span class="dot"></span>Pose et remplacement de luminaires</div>
+                    <div class="dot-item"><span class="dot"></span>Installation de spots encastrés</div>
+                    <div class="dot-item"><span class="dot"></span>Pose d'appliques murales</div>
+                    <div class="dot-item"><span class="dot"></span>Pose de détecteur de fumée DAAF</div>
+                    <div class="dot-item"><span class="dot"></span>Éclairage sous meuble &amp; spots cuisine</div>
                 </div>
-                <div class="prest-tarifs">
-                    <span class="prest-tarif">Pose luminaire — 40 à 60 €</span>
+                <div style="margin-top: 1.25rem; display: flex; gap: .6rem; flex-wrap: wrap;">
+                    <span style="display:inline-flex;align-items:center;gap:.5rem;background:var(--rust-pale);border:1px solid rgba(192,86,42,.18);border-radius:var(--radius-pill);padding:.45rem 1rem;font-size:.8rem;font-weight:600;color:var(--rust-dark);">Pose luminaire : 40 à 60 €</span>
                 </div>
             </div>
         </div>
 
         <!-- Menuiserie -->
-        <div class="prest-card" data-reveal data-reveal-delay="3">
-            <div class="prest-img">
+        <div class="svc-card" data-reveal data-reveal-delay="3">
+            <div class="svc-img-wrap">
                 <img src="images/menuiserie.jpg" alt="Menuiserie"
-                     onerror="this.outerHTML='<div class=img-ph><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'7\' height=\'18\' rx=\'1\'/><rect x=\'14\' y=\'3\' width=\'7\' height=\'9\' rx=\'1\'/><rect x=\'14\' y=\'16\' width=\'7\' height=\'5\' rx=\'1\'/></svg></div>'">
+                     onerror="this.outerHTML='<div class=placeholder><svg width=52 height=52 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'3\' y=\'3\' width=\'7\' height=\'18\' rx=\'1\'/><rect x=\'14\' y=\'3\' width=\'7\' height=\'9\' rx=\'1\'/><rect x=\'14\' y=\'16\' width=\'7\' height=\'5\' rx=\'1\'/></svg></div>'">
             </div>
-            <div class="prest-body">
-                <p class="prest-number">04 — Menuiserie</p>
+            <div class="svc-body">
+                <p class="svc-number">04 — Menuiserie</p>
                 <h3>Menuiserie &amp; Finitions</h3>
                 <p>Travaux de menuiserie légère pour améliorer, réparer ou finaliser l'aménagement de vos espaces intérieurs.</p>
-                <div class="prest-items">
-                    <div class="prest-item">Pose de plinthes et baguettes</div>
-                    <div class="prest-item">Remplacement de serrure &amp; poignée</div>
-                    <div class="prest-item">Réglage de portes et fenêtres</div>
-                    <div class="prest-item">Pose de parquet flottant</div>
-                    <div class="prest-item">Installation de placards</div>
+                <div class="dot-list" style="margin-top: 1rem;">
+                    <div class="dot-item"><span class="dot"></span>Pose de plinthes et baguettes</div>
+                    <div class="dot-item"><span class="dot"></span>Remplacement de serrure &amp; poignée</div>
+                    <div class="dot-item"><span class="dot"></span>Réglage de portes et fenêtres</div>
+                    <div class="dot-item"><span class="dot"></span>Pose de parquet flottant</div>
+                    <div class="dot-item"><span class="dot"></span>Installation de placards</div>
+                    <div class="dot-item"><span class="dot"></span>Rebouchage &amp; petites réparations</div>
                 </div>
-                <div class="prest-tarifs">
-                    <span class="prest-tarif">Pose de plinthes — 25 à 40 €</span>
-                    <span class="prest-tarif">Remplacement serrure — 50 à 80 €</span>
+                <div style="margin-top: 1.25rem; display: flex; gap: .6rem; flex-wrap: wrap;">
+                    <span style="display:inline-flex;align-items:center;gap:.5rem;background:var(--rust-pale);border:1px solid rgba(192,86,42,.18);border-radius:var(--radius-pill);padding:.45rem 1rem;font-size:.8rem;font-weight:600;color:var(--rust-dark);">Pose de plinthes : 25 à 40 €</span>
+                    <span style="display:inline-flex;align-items:center;gap:.5rem;background:var(--rust-pale);border:1px solid rgba(192,86,42,.18);border-radius:var(--radius-pill);padding:.45rem 1rem;font-size:.8rem;font-weight:600;color:var(--rust-dark);">Remplacement serrure : 50 à 80 €</span>
                 </div>
             </div>
         </div>
@@ -178,83 +220,95 @@
 <!-- ══════════════════════════════════════════
      BANDEAU URGENCE
      ══════════════════════════════════════════ -->
-<div class="urgence-band" data-reveal>
-    <div class="urgence-inner">
-        <div class="urgence-left">
-            <div class="urgence-icon">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<div style="background: var(--ink); padding: 3rem var(--gap);" data-reveal>
+    <div style="max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <div style="width:56px;height:56px;background:rgba(192,86,42,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--rust);flex-shrink:0;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
             </div>
-            <div class="urgence-text">
-                <h3>Dépannage urgent ?</h3>
-                <p>Intervention rapide — réponse dans la journée dans tout Le Havre et alentours.</p>
+            <div>
+                <h3 style="font-family:var(--f-display);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:.25rem;">Dépannage urgent ?</h3>
+                <p style="color:rgba(255,255,255,.5);font-size:.875rem;margin:0;">Intervention rapide — réponse dans la journée dans tout Le Havre et alentours.</p>
             </div>
         </div>
-        <a href="tel:0780551298" class="btn btn-primary">
-            📞 07 80 55 12 98
-        </a>
+        <a href="tel:0780551298" class="btn btn-primary">📞 07 80 55 12 98</a>
     </div>
 </div>
 
 
 <!-- ══════════════════════════════════════════
-     ALBUM PHOTO RÉALISATIONS
+     GALERIE
      ══════════════════════════════════════════ -->
-<div class="galerie-section" id="galerie">
+<div class="section" id="galerie">
     <div class="section-header" data-reveal>
         <p class="section-label">Nos réalisations</p>
         <h2>Album photos<br>bricolage &amp; dépannage</h2>
         <p>Quelques exemples de travaux réalisés chez nos clients au Havre.</p>
     </div>
 
-    <div class="brico-gallery" data-reveal data-reveal-delay="1">
+    <div class="gallery-grid" data-reveal>
+        <div class="g-item"><img src="images/brico1.jpg" alt="Réalisation 1" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--stone);font-size:.75rem;\'><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'"></div>
+        <div class="g-item"><img src="images/brico2.jpg" alt="Réalisation 2" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--stone);font-size:.75rem;\'><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'"></div>
+        <div class="g-item"><img src="images/brico3.jpg" alt="Réalisation 3" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--stone);font-size:.75rem;\'><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'"></div>
+        <div class="g-item"><img src="images/brico4.jpg" alt="Réalisation 4" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--stone);font-size:.75rem;\'><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'"></div>
+        <div class="g-item"><img src="images/brico5.jpg" alt="Réalisation 5" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--stone);font-size:.75rem;\'><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'"></div>
+        <div class="g-item"><img src="images/brico6.jpg" alt="Réalisation 6" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--stone);font-size:.75rem;\'><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'"></div>
+        <div class="g-item"><img src="images/brico7.jpg" alt="Réalisation 7" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--stone);font-size:.75rem;\'><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'"></div>
+        <div class="g-item"><img src="images/brico8.jpg" alt="Réalisation 8" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--stone);font-size:.75rem;\'><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'"></div>
+        <div class="g-item"><img src="images/brico9.jpg" alt="Réalisation 9" onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--stone);font-size:.75rem;\'><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'var(--rust)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'"></div>
+    </div>
+</div>
 
-        <div class="g-item">
-            <img src="images/brico1.jpg" alt="Réalisation bricolage 1"
-                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+
+<!-- ══════════════════════════════════════════
+     AVANTAGES
+     ══════════════════════════════════════════ -->
+<section class="about-section" data-reveal>
+    <div class="about-inner">
+
+        <div class="about-deco-side" data-reveal>
+            <div class="about-stats-grid">
+                <div class="about-stat-card">
+                    <div class="num">10+</div>
+                    <p>ans d'expérience</p>
+                </div>
+                <div class="about-stat-card">
+                    <div class="num">0 €</div>
+                    <p>déplacement Le Havre</p>
+                </div>
+                <div class="about-stat-card">
+                    <div class="num">24h</div>
+                    <p>délai de réponse</p>
+                </div>
+                <div class="about-stat-card">
+                    <div class="num">4,9★</div>
+                    <p>note Google</p>
+                </div>
+            </div>
         </div>
 
-        <div class="g-item">
-            <img src="images/brico2.jpg" alt="Réalisation bricolage 2"
-                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
-        </div>
+        <div class="about-content" data-reveal data-reveal-delay="2">
+            <p class="section-label">Pourquoi choisir Multi'CH ?</p>
+            <h2>Un artisan de proximité,<br>disponible &amp; fiable</h2>
+            <p>Que ce soit pour un meuble à monter, une fuite à réparer ou une prise à remplacer, <strong>Mr CHOUAI H.</strong> intervient avec le même professionnalisme et la même rigueur.</p>
+            <p>Pas de surprise sur la facture : <strong>tarifs clairs annoncés avant chaque intervention</strong>, devis gratuit, et un seul artisan de confiance de bout en bout.</p>
+            <p>Disponible du lundi au samedi, dans tout Le Havre et l'agglomération havraise. TVA non applicable (art. 293 B du CGI).</p>
 
-        <div class="g-item">
-            <img src="images/brico3.jpg" alt="Réalisation bricolage 3"
-                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
-        </div>
-
-        <div class="g-item">
-            <img src="images/brico4.jpg" alt="Réalisation bricolage 4"
-                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
-        </div>
-
-        <div class="g-item">
-            <img src="images/brico5.jpg" alt="Réalisation bricolage 5"
-                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
-        </div>
-
-        <div class="g-item">
-            <img src="images/brico6.jpg" alt="Réalisation bricolage 6"
-                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
-        </div>
-
-        <div class="g-item">
-            <img src="images/brico7.jpg" alt="Réalisation bricolage 7"
-                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
-        </div>
-
-        <div class="g-item">
-            <img src="images/brico8.jpg" alt="Réalisation bricolage 8"
-                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
-        </div>
-
-        <div class="g-item">
-            <img src="images/brico9.jpg" alt="Réalisation bricolage 9"
-                 onerror="this.outerHTML='<div class=g-ph><svg width=36 height=36 viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg>Photo bientôt</div>'">
+            <div class="about-signature">
+                <img src="images/moi.png" alt="Mr CHOUAI H." class="about-avatar"
+                     onerror="this.outerHTML='<div class=about-avatar-placeholder>C</div>'">
+                <div class="about-sig-text">
+                    <strong>Mr CHOUAI H.</strong>
+                    <span>Artisan multiservices — Multi'CH Le Havre</span>
+                </div>
+            </div>
         </div>
 
     </div>
-</div>
+</section>
 
 
 <!-- ══════════════════════════════════════════
@@ -289,7 +343,16 @@
                     <li><a href="bricolage.html">Bricolage</a></li>
                     <li><a href="cuisine.html">Pose de cuisines</a></li>
                     <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="reparations.html">Réparations locatives</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0780551298">07 80 55 12 98</a></li>
+                    <li><a href="contact.html">Formulaire de contact</a></li>
+                    <li><span>Le Havre (76600)</span></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -297,14 +360,14 @@
                 <ul>
                     <li><span>Le Havre — tous quartiers</span></li>
                     <li><span>Montivilliers, Harfleur</span></li>
-                    <li><span>Ste-Adresse, Octeville</span></li>
+                    <li><span>Sainte-Adresse, Octeville</span></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
         <p>© 2026 Multi'CH — Tous droits réservés</p>
-        <p>Artisan bricoleur au Havre (76600)</p>
+        <p>Artisan bricoleur au Havre (76600) — SIRET : 892 607 372 00018</p>
     </div>
 </footer>
 
@@ -322,14 +385,46 @@
 
 
 <!-- ══════════════════════════════════════════
-     SCROLL REVEAL
+     SCRIPTS
      ══════════════════════════════════════════ -->
 <script>
+    /* Scroll reveal */
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
     document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+    /* Menu mobile */
+    (function () {
+        const toggle = document.querySelector('.nav-toggle');
+        const mobileMenu = document.querySelector('.nav-mobile');
+        if (!toggle || !mobileMenu) return;
+
+        toggle.addEventListener('click', () => {
+            const isOpen = toggle.classList.toggle('open');
+            mobileMenu.classList.toggle('open', isOpen);
+            document.body.classList.toggle('nav-open', isOpen);
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('open');
+                mobileMenu.classList.remove('open');
+                document.body.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                toggle.classList.remove('open');
+                mobileMenu.classList.remove('open');
+                document.body.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
 </script>
 
 </body>
