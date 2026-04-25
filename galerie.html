@@ -3,55 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez les réalisations de Multi'CH au Havre : bricolage, pose de cuisine et décoration.">
     <title>Galerie — Multi'CH Le Havre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
     <style>
-        /* Ajustements spécifiques pour l'éclat de la galerie */
-        .hero-galerie { padding: 120px 0 60px; background: var(--sand); text-align: center; }
-        .filter-container { margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-            gap: 1.5rem; 
-            margin-top: 3rem; 
+        /* STYLE DES FILTRES */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 1px solid rgba(26,20,16,.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-pill);
+            font-family: var(--f-body);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--stone);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--rust);
+            color: var(--rust);
+        }
+
+        .filter-btn.active {
+            background: var(--rust);
+            color: var(--white);
+            border-color: var(--rust);
+            box-shadow: 0 4px 15px rgba(192,86,42,0.3);
+        }
+
+        /* GRILLE DE GALERIE */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            min-height: 400px;
         }
 
         .gallery-card {
-            position: relative;
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-md);
             overflow: hidden;
+            position: relative;
             height: 300px;
-            background: var(--white);
+            background: var(--sand);
             box-shadow: var(--shadow-sm);
-            transition: transform .3s var(--ease-out), box-shadow .3s;
         }
 
-        .gallery-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease-out);
+        }
 
-        .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
-        .gallery-card:hover img { transform: scale(1.1); }
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
 
         .gallery-badge {
-            position: absolute; top: 1rem; left: 1rem;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
             background: rgba(255,255,255,0.9);
-            padding: 0.4rem 1rem; border-radius: var(--radius-pill);
-            font-size: 0.75rem; font-weight: 700; color: var(--rust);
-            z-index: 2; backdrop-filter: blur(4px);
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--rust);
+            z-index: 2;
+            text-transform: uppercase;
         }
-
-        .gallery-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(26,20,16,0.8), transparent);
-            display: flex; align-items: flex-end; padding: 1.5rem;
-            opacity: 0; transition: opacity 0.3s;
-        }
-
-        .gallery-card:hover .gallery-overlay { opacity: 1; }
-        .gallery-overlay span { color: var(--white); font-family: var(--f-display); font-size: 1.2rem; }
     </style>
 </head>
 <body>
@@ -59,20 +90,17 @@
 <header>
     <nav class="nav">
         <a href="index.html" class="nav-logo">
-            <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Multi'CH Logo">
-            Multi'CH
+            <img src="https://multi-ch.github.io/1768680134589.jpg" alt="Logo"> Multi'CH
         </a>
         <ul class="nav-links">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="decoration.html">Décoration</a></li>
             <li><a href="bricolage.html">Bricolage</a></li>
-            <li><a href="cuisine.html">Pose de cuisines</a></li>
+            <li><a href="cuisine.html">Cuisines</a></li>
             <li><a href="galerie.html" class="active">Galerie</a></li>
             <li><a href="contact.html" class="nav-cta">Contact</a></li>
         </ul>
-        <button class="nav-toggle" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
+        <button class="nav-toggle"><span></span><span></span><span></span></button>
     </nav>
 </header>
 
@@ -81,111 +109,87 @@
         <li><a href="index.html">Accueil</a></li>
         <li><a href="decoration.html">Décoration</a></li>
         <li><a href="bricolage.html">Bricolage</a></li>
-        <li><a href="cuisine.html">Pose de cuisines</a></li>
+        <li><a href="cuisine.html">Cuisines</a></li>
         <li><a href="galerie.html" class="active">Galerie</a></li>
         <li><a href="contact.html" class="nav-mobile-cta">Contact</a></li>
     </ul>
 </div>
 
-<section class="hero-galerie">
+<section class="hero" style="min-height: 40vh; padding-top: 150px;">
     <div class="container">
-        <p class="section-label" data-reveal>Portfolio</p>
-        <h1 data-reveal data-reveal-delay="1">Nos <em>réalisations</em></h1>
+        <p class="section-label">Portfolio</p>
+        <h1>Galerie <em>Réalisations</em></h1>
         
-        <div class="filter-container" data-reveal data-reveal-delay="2">
-            <button class="filter-btn active" data-filter="all">Tous</button>
-            <button class="filter-btn" data-filter="brico">🔨 Bricolage</button>
-            <button class="filter-btn" data-filter="cuisine">🍽️ Cuisine</button>
-            <button class="filter-btn" data-filter="deco">🎨 Décoration</button>
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterGallery('all', this)">Tous</button>
+            <button class="filter-btn" onclick="filterGallery('brico', this)">🔨 Bricolage</button>
+            <button class="filter-btn" onclick="filterGallery('cuisine', this)">🍽️ Cuisine</button>
+            <button class="filter-btn" onclick="filterGallery('deco', this)">🎨 Décoration</button>
         </div>
     </div>
 </section>
 
-<div class="container" style="padding-bottom: 5rem;">
-    <div class="gallery-grid" id="galleryGrid">
-        </div>
-</div>
-
-<div class="cta-banner" data-reveal>
-    <div class="cta-text">
-        <h3>Un projet en tête ?</h3>
-        <p>Confiez-nous vos travaux pour un résultat aussi propre que sur ces photos.</p>
+<section class="section">
+    <div class="container">
+        <div class="gallery-grid" id="galleryGrid">
+            </div>
     </div>
-    <div class="cta-action">
-        <a href="contact.html" class="btn btn-white">Demander mon devis →</a>
-    </div>
-</div>
-
-<footer>
-    <div class="footer-inner">
-        <div class="footer-brand">Multi'CH <span>Artisan multiservices au Havre</span></div>
-        <div class="footer-col">
-            <a href="tel:0780551298" style="color:var(--white); font-weight:700;">07 80 55 12 98</a>
-        </div>
-    </div>
-</footer>
+</section>
 
 <script>
-    // 1. LISTE DES IMAGES (Assurez-vous que les noms correspondent à vos fichiers)
+    // Liste des images
     const images = [
-        { src: "images/brico1.jpg", cat: "brico", title: "Montage meuble" },
-        { src: "images/brico2.jpg", cat: "brico", title: "Réparation plomberie" },
-        { src: "images/cuisine1.jpg", cat: "cuisine", title: "Pose de cuisine complète" },
+        { src: "images/brico1.jpg", cat: "brico", title: "Meuble TV" },
+        { src: "images/brico2.jpg", cat: "brico", title: "Étagères" },
+        { src: "images/cuisine1.jpg", cat: "cuisine", title: "Cuisine moderne" },
         { src: "images/cuisine2.jpg", cat: "cuisine", title: "Plan de travail" },
         { src: "images/deco1.jpg", cat: "deco", title: "Peinture salon" },
-        { src: "images/deco2.jpg", cat: "deco", title: "Pose de papier peint" }
+        { src: "images/deco2.jpg", cat: "deco", title: "Papier peint" }
     ];
 
-    // 2. GÉNÉRATION DE LA GALERIE
-    const grid = document.getElementById('galleryGrid');
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    function filterGallery(category, btn) {
+        // 1. Gérer l'apparence des boutons
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-    function render(filter = 'all') {
+        // 2. Filtrer et afficher
+        const grid = document.getElementById('galleryGrid');
         grid.innerHTML = '';
-        const filtered = filter === 'all' ? images : images.filter(i => i.cat === filter);
-        
-        filtered.forEach(img => {
-            const card = document.createElement('div');
-            card.className = 'gallery-card';
-            card.setAttribute('data-reveal', '');
-            
-            // Emoji selon catégorie
-            const emoji = img.cat === 'brico' ? '🔨' : (img.cat === 'cuisine' ? '🍽️' : '🎨');
-            const label = img.cat.charAt(0).toUpperCase() + img.cat.slice(1);
 
-            card.innerHTML = `
-                <div class="gallery-badge">${emoji} ${label}</div>
-                <img src="${img.src}" alt="${img.title}" onerror="this.src='https://picsum.photos/400/300?random=${Math.random()}'">
-                <div class="gallery-overlay"><span>${img.title}</span></div>
+        const filtered = category === 'all' ? images : images.filter(img => img.cat === category);
+
+        filtered.forEach(img => {
+            const label = img.cat === 'brico' ? '🔨 Brico' : (img.cat === 'cuisine' ? '🍽️ Cuisine' : '🎨 Déco');
+            grid.innerHTML += `
+                <div class="gallery-card" data-reveal>
+                    <div class="gallery-badge">${label}</div>
+                    <img src="${img.src}" alt="${img.title}" onerror="this.src='https://picsum.photos/400/300?sig=${Math.random()}'">
+                    <div class="gallery-overlay" style="opacity:1; background:none; padding:1rem;">
+                        <span style="background:rgba(0,0,0,0.5); padding:0.2rem 0.5rem; border-radius:4px;">${img.title}</span>
+                    </div>
+                </div>
             `;
-            grid.appendChild(card);
         });
+        
+        // Relancer l'animation reveal
+        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
     }
 
-    // 3. FILTRES INTERACTIFS
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            render(btn.dataset.filter);
-        });
-    });
-
-    // 4. MENU MOBILE
+    // Menu Mobile
     const toggle = document.querySelector('.nav-toggle');
     const mobileMenu = document.querySelector('.nav-mobile');
     toggle.addEventListener('click', () => {
         toggle.classList.toggle('open');
         mobileMenu.classList.toggle('open');
-        document.body.classList.toggle('nav-open');
     });
 
-    // 5. INITIALISATION & REVEAL
-    render();
+    // Reveal
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+    // Initialisation
+    filterGallery('all', document.querySelector('.filter-btn.active'));
 </script>
 
 </body>
