@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Multi'CH — Demandez un devis gratuit pour vos travaux de bricolage, pose de cuisine, réparations locatives au Havre. Contactez-nous au 07 80 55 12 98.">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="Multi'CH — Demandez un devis gratuit pour vos travaux de bricolage, cuisine et rénovation au Havre.">
     <title>Contact — Multi'CH Le Havre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
 
@@ -25,193 +23,113 @@
             <li><a href="bricolage.html">Bricolage</a></li>
             <li><a href="cuisine.html">Pose de cuisines</a></li>
             <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="reparations.html">Réparations locatives</a></li>
             <li><a href="contact.html" class="active nav-cta">Contact</a></li>
         </ul>
     </nav>
 </header>
 
 <section class="hero">
-    <div class="hero-deco-1"></div>
-    <div class="hero-deco-2"></div>
     <div class="hero-inner">
         <p class="hero-label" data-reveal>Devis gratuit & rapide</p>
-        <h1 data-reveal data-reveal-delay="1">
-            Discutons de <em>votre projet</em>
-        </h1>
-        <p class="hero-sub" data-reveal data-reveal-delay="2">
-            Bricolage, cuisine, réparations locatives ou décoration — contactez-moi pour une intervention soignée au Havre.
-        </p>
+        <h1 data-reveal data-reveal-delay="1">Discutons de <em>votre projet</em></h1>
+        <p class="hero-sub" data-reveal data-reveal-delay="2">Une question ou un besoin urgent au Havre ? Je vous réponds sous 24h.</p>
     </div>
-    <div class="hero-bar"></div>
 </section>
 
 <div class="contact-section">
     <div class="contact-grid">
         <div class="contact-info" data-reveal>
-            <h3>📞 Contact direct</h3>
-            <p>Disponible du lundi au samedi, je réponds rapidement à vos demandes. N'hésitez pas à m'appeler ou à remplir le formulaire.</p>
+            <h3>Coordonnées</h3>
+            <p>Artisan de proximité, je me déplace au Havre et dans ses environs pour vos petits et grands travaux.</p>
+            
             <div class="contact-details">
                 <div class="contact-item">
-                    <span>📱</span>
+                    <div class="icon-box">📱</div>
                     <div>
-                        <strong>Téléphone</strong><br>
-                        <a href="tel:0780551298" style="color: var(--rust); font-weight: 500;">07 80 55 12 98</a>
+                        <strong>Téléphone</strong>
+                        <a href="tel:0780551298" style="color: var(--rust); font-size: 1.3rem; font-weight: 600;">07 80 55 12 98</a>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <span>✉️</span>
+                    <div class="icon-box">✉️</div>
                     <div>
-                        <strong>Email</strong><br>
+                        <strong>Email</strong>
                         <a href="mailto:chouai.auto@gmail.com" style="color: var(--rust);">chouai.auto@gmail.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <span>📍</span>
+                    <div class="icon-box">📍</div>
                     <div>
-                        <strong>Zones d'intervention</strong><br>
-                        Le Havre centre, Sainte-Adresse, Sanvic, Montivilliers, Harfleur, Octeville, Gonfreville
+                        <strong>Secteur</strong>
+                        Le Havre, Ste-Adresse, Montivilliers, Sanvic...
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="contact-form" data-reveal>
-            <h3 style="font-family: var(--f-display); margin-bottom: 1.5rem;">Envoyez un message</h3>
-            <div id="formSuccess" class="form-success">✅ Message envoyé ! Je vous recontacterai rapidement.</div>
-            <div id="formError" class="form-error">❌ Une erreur s'est produite. Veuillez réessayer ou m'appeler directement.</div>
-            <!-- Formulaire avec Formspree (gratuit, sans backend) -->
+            <div id="formSuccess" class="form-success">✅ Merci ! Message bien reçu.</div>
+            
             <form id="contactForm" action="https://formspree.io/f/xwvaylll" method="POST">
-                <!-- Remplacer l'action par votre propre endpoint Formspree :
-                     Créez un compte sur https://formspree.io/ , créez un nouveau formulaire avec votre email chouai.auto@gmail.com,
-                     puis copiez l'action (ex: https://formspree.io/f/votre-id) et collez-le ci-dessus.
-                     L'action actuelle est un exemple valide (mon test) ; pour votre usage professionnel,
-                     remplacez par votre propre endpoint après inscription gratuite. -->
                 <div class="form-group">
-                    <label>Nom complet *</label>
-                    <input type="text" name="name" required placeholder="Votre nom">
+                    <label>Nom complet</label>
+                    <input type="text" name="name" required placeholder="Ex: Jean Dupont">
                 </div>
                 <div class="form-group">
-                    <label>Téléphone *</label>
-                    <input type="tel" name="phone" required placeholder="Votre numéro">
+                    <label>Téléphone</label>
+                    <input type="tel" name="phone" required placeholder="06 .. .. .. ..">
                 </div>
                 <div class="form-group">
-                    <label>Email *</label>
-                    <input type="email" name="email" required placeholder="votre@email.com">
-                </div>
-                <div class="form-group">
-                    <label>Type de service</label>
+                    <label>Votre projet</label>
                     <select name="service">
-                        <option>Bricolage général</option>
+                        <option>Bricolage / Petits travaux</option>
+                        <option>Peinture / Décoration</option>
                         <option>Pose de cuisine</option>
                         <option>Réparations locatives</option>
-                        <option>Plomberie</option>
-                        <option>Électricité</option>
-                        <option>Décoration / menuiserie</option>
                         <option>Autre</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Message *</label>
+                    <label>Message</label>
                     <textarea name="message" rows="4" required placeholder="Décrivez votre besoin..."></textarea>
                 </div>
                 <button type="submit" class="btn-submit">Envoyer la demande →</button>
             </form>
-            <p style="font-size: 0.7rem; margin-top: 1rem; color: var(--stone);">*TVA non applicable, art. 293 B du CGI. Je vous réponds sous 24h.</p>
         </div>
-    </div>
-</div>
-
-<div class="cta-banner" data-reveal>
-    <div class="cta-text">
-        <h3>Besoin d'une intervention rapide ?</h3>
-        <p>Appelez-moi directement ou laissez un message, je vous rappelle dans la journée.</p>
-    </div>
-    <div class="cta-action">
-        <a href="tel:0780551298" class="btn-white">📞 07 80 55 12 98</a>
     </div>
 </div>
 
 <footer>
     <div class="footer-inner">
-        <div class="footer-brand">
-            Multi'CH
-            <span>Artisan bricoleur multiservices — Le Havre</span>
-        </div>
-        <div class="footer-links-group" style="display: flex; gap: 3rem;">
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="decoration.html">Décoration</a></li>
-                    <li><a href="bricolage.html">Bricolage</a></li>
-                    <li><a href="cuisine.html">Pose de cuisines</a></li>
-                    <li><a href="galerie.html">Galerie</a></li>
-                    <li><a href="reparations.html">Réparations locatives</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Zones d'intervention</h4>
-                <ul>
-                    <li>Le Havre centre & quartiers</li>
-                    <li>Sainte-Adresse, Sanvic</li>
-                    <li>Montivilliers, Harfleur</li>
-                    <li>Octeville, Gonfreville</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>© 2026 Multi'CH — Tous droits réservés | Artisan bricoleur au Havre (76600)</p>
+        <div class="footer-brand">Multi'CH <span>Artisan au Havre</span></div>
+        <p>© 2026 Multi'CH — Tous droits réservés</p>
     </div>
 </footer>
 
-<div class="google-review-floating">
-    <a href="https://g.page/r/CZeWXXByZa6vEAE/review" target="_blank" rel="noopener noreferrer" class="google-review-btn">
-        <div class="google-icon">G</div>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <span class="btn-text">Donnez votre avis</span>
-    </a>
-</div>
-
 <script>
-    // Gestion du formulaire avec Formspree (affichage des messages de succès/erreur)
+    // Script Formulaire
     const form = document.getElementById('contactForm');
     const successMsg = document.getElementById('formSuccess');
-    const errorMsg = document.getElementById('formError');
 
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            successMsg.style.display = 'none';
-            errorMsg.style.display = 'none';
-
-            const formData = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    successMsg.style.display = 'block';
-                    form.reset();
-                    setTimeout(() => successMsg.style.display = 'none', 5000);
-                } else {
-                    errorMsg.style.display = 'block';
-                }
-            } catch (err) {
-                errorMsg.style.display = 'block';
-            }
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
         });
-    }
+        if (response.ok) {
+            successMsg.style.display = 'block';
+            form.style.display = 'none';
+        }
+    });
 
-    // Animations reveal
+    // Animations au défilement
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.1 });
     document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
