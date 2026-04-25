@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Multi'CH — Galerie de nos réalisations au Havre : bricolage, pose de cuisine, décoration, plomberie et réparations locatives. Photos avant/après.">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="Multi'CH — Galerie de nos réalisations au Havre : bricolage, pose de cuisine, décoration, plomberie et réparations locatives.">
     <title>Galerie — Multi'CH Le Havre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -27,31 +26,40 @@
             <li><a href="reparations.html">Réparations locatives</a></li>
             <li><a href="contact.html" class="nav-cta">Contact</a></li>
         </ul>
+
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 </header>
 
+<div class="nav-mobile" role="dialog" aria-label="Menu de navigation">
+    <ul class="nav-mobile-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="decoration.html">Décoration</a></li>
+        <li><a href="bricolage.html">Bricolage</a></li>
+        <li><a href="cuisine.html">Pose de cuisines</a></li>
+        <li><a href="galerie.html" class="active">Galerie</a></li>
+        <li><a href="reparations.html">Réparations locatives</a></li>
+        <li><a href="contact.html" class="nav-mobile-cta">Contact</a></li>
+    </ul>
+</div>
+
 <section class="hero">
-    <div class="hero-deco-1"></div>
-    <div class="hero-deco-2"></div>
     <div class="hero-inner">
         <p class="hero-label" data-reveal>Notre savoir-faire en images</p>
         <h1 data-reveal data-reveal-delay="1">
             Galerie <em>réalisations</em><br>Multi'CH
         </h1>
         <p class="hero-sub" data-reveal data-reveal-delay="2">
-            Bricolage, pose de cuisines, décoration, plomberie… Découvrez nos travaux récents au Havre.
+            Découvrez nos travaux récents de bricolage et rénovation au Havre.
         </p>
     </div>
-    <div class="hero-bar"></div>
 </section>
 
 <div class="gallery-section" id="gallery">
-    <div class="section-header" data-reveal>
-        <p class="section-label">Portfolio</p>
-        <h2>Nos derniers chantiers</h2>
-        <p>Images de nos interventions chez nos clients (tous les fichiers brico*, cuisine*, deco*).</p>
-    </div>
-
     <div class="filter-buttons" data-reveal>
         <button class="filter-btn active" data-filter="all">Tous</button>
         <button class="filter-btn" data-filter="brico">🔨 Bricolage</button>
@@ -59,133 +67,80 @@
         <button class="filter-btn" data-filter="deco">🎨 Décoration</button>
     </div>
 
-    <div class="gallery-grid" id="galleryGrid" data-reveal></div>
-</div>
-
-<div class="cta-banner" data-reveal>
-    <div class="cta-text">
-        <h3>Un projet similaire ?</h3>
-        <p>Contactez-nous pour un devis gratuit et une intervention rapide au Havre.</p>
-    </div>
-    <div class="cta-action">
-        <a href="contact.html" class="btn-white">Demander un devis →</a>
-    </div>
+    <div class="gallery-grid" id="galleryGrid" data-reveal>
+        </div>
 </div>
 
 <footer>
     <div class="footer-inner">
-        <div class="footer-brand">
-            Multi'CH
-            <span>Artisan bricoleur multiservices — Le Havre</span>
-        </div>
-        <div class="footer-links-group" style="display: flex; gap: 3rem;">
+        <div class="footer-brand">Multi'CH <span>Artisan au Havre</span></div>
+        <div class="footer-links-group">
             <div class="footer-col">
                 <h4>Navigation</h4>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="decoration.html">Décoration</a></li>
-                    <li><a href="bricolage.html">Bricolage</a></li>
-                    <li><a href="cuisine.html">Pose de cuisines</a></li>
-                    <li><a href="galerie.html">Galerie</a></li>
-                    <li><a href="reparations.html">Réparations locatives</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Zones d'intervention</h4>
-                <ul>
-                    <li>Le Havre centre & quartiers</li>
-                    <li>Sainte-Adresse, Sanvic</li>
-                    <li>Montivilliers, Harfleur</li>
-                    <li>Octeville, Gonfreville</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>© 2026 Multi'CH — Tous droits réservés | Artisan bricoleur au Havre (76600)</p>
+        <p>© 2026 Multi'CH — Tous droits réservés</p>
     </div>
 </footer>
 
-<div class="google-review-floating">
-    <a href="https://g.page/r/CZeWXXByZa6vEAE/review" target="_blank" rel="noopener noreferrer" class="google-review-btn">
-        <div class="google-icon">G</div>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <span class="btn-text">Donnez votre avis</span>
-    </a>
-</div>
-
 <script>
-    // ═══════════════════════════════════════════════════════
-    // Toutes les images qui commencent par brico, cuisine, deco
-    // Vous pouvez ajouter vos fichiers réels dans le dossier /images/
-    // ═══════════════════════════════════════════════════════
+    // 1. GESTION DU MENU MOBILE
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.querySelector('.nav-mobile');
+    
+    toggle.addEventListener('click', () => {
+        const isOpen = toggle.classList.toggle('open');
+        mobileMenu.classList.toggle('open', isOpen);
+        document.body.classList.toggle('nav-open', isOpen);
+    });
+
+    // 2. LOGIQUE DE LA GALERIE
     const imageList = [
-        // BRICO (brico1.jpg, brico2.jpg, ...)
-        { src: "images/brico1.jpg", category: "brico", title: "Montage meuble complexe" },
-        { src: "images/brico2.jpg", category: "brico", title: "Installation étagères murales" },
-        { src: "images/brico3.jpg", category: "brico", title: "Réparation plomberie" },
-        { src: "images/brico4.jpg", category: "brico", title: "Pose de parquet flottant" },
-        { src: "images/brico5.jpg", category: "brico", title: "Remplacement interrupteur" },
-        { src: "images/brico6.jpg", category: "brico", title: "Réglage porte et serrure" },
-        // CUISINE
-        { src: "images/cuisine1.jpg", category: "cuisine", title: "Pose cuisine complète" },
-        { src: "images/cuisine2.jpg", category: "cuisine", title: "Plan de travail sur mesure" },
-        { src: "images/cuisine3.jpg", category: "cuisine", title: "Installation évier & robinet" },
-        { src: "images/cuisine4.jpg", category: "cuisine", title: "Rénovation crédence" },
-        { src: "images/cuisine5.jpg", category: "cuisine", title: "Montage meubles hauts" },
-        { src: "images/cuisine6.jpg", category: "cuisine", title: "Branchement électroménager" },
-        // DECO
-        { src: "images/deco1.jpg", category: "deco", title: "Pose de papier peint" },
-        { src: "images/deco2.jpg", category: "deco", title: "Installation luminaires design" },
-        { src: "images/deco3.jpg", category: "deco", title: "Montage dressing sur mesure" },
-        { src: "images/deco4.jpg", category: "deco", title: "Pose de tringles et rideaux" },
-        { src: "images/deco5.jpg", category: "deco", title: "Rénovation peinture salon" },
-        { src: "images/deco6.jpg", category: "deco", title: "Décoration murale & miroirs" }
+        { src: "images/brico1.jpg", category: "brico", title: "Montage meuble" },
+        { src: "images/cuisine1.jpg", category: "cuisine", title: "Pose cuisine" },
+        { src: "images/deco1.jpg", category: "deco", title: "Peinture salon" },
+        { src: "images/brico2.jpg", category: "brico", title: "Plomberie" },
+        { src: "images/cuisine2.jpg", category: "cuisine", title: "Plan de travail" },
+        { src: "images/deco2.jpg", category: "deco", title: "Papier peint" }
+        // Ajoutez vos autres images ici...
     ];
 
-    // Génération des éléments de galerie avec fallback si l'image n'existe pas
     function renderGallery(filter = "all") {
         const container = document.getElementById("galleryGrid");
-        if (!container) return;
         const filtered = filter === "all" ? imageList : imageList.filter(img => img.category === filter);
-        if (filtered.length === 0) {
-            container.innerHTML = `<div class="no-results">Aucune image trouvée pour cette catégorie.<br>Ajoutez vos photos dans le dossier /images/ (ex: brico1.jpg, cuisine1.jpg, deco1.jpg)</div>`;
-            return;
-        }
+        
         container.innerHTML = filtered.map(img => `
-            <div class="gallery-card" data-category="${img.category}">
-                <img class="gallery-img" src="${img.src}" alt="${img.title}" 
-                     onerror="this.onerror=null; this.src='https://picsum.photos/id/${Math.floor(Math.random()*100)+1}/400/300'; this.parentElement.querySelector('.badge-category').style.display='block';">
-                <div class="badge-category" style="display: ${img.category === 'brico' ? 'block' : (img.category === 'cuisine' ? 'block' : 'block')}">
-                    ${img.category === 'brico' ? '🔨 Bricolage' : (img.category === 'cuisine' ? '🍽️ Cuisine' : '🎨 Décoration')}
-                </div>
-                <div class="gallery-overlay">
-                    <span>${img.title}</span>
-                </div>
+            <div class="gallery-card" data-reveal>
+                <img src="${img.src}" alt="${img.title}" onerror="this.src='https://picsum.photos/400/300?random=${Math.random()}'">
+                <div class="gallery-overlay"><span>${img.title}</span></div>
             </div>
         `).join("");
     }
 
-    // Filtrage interactif
-    const btns = document.querySelectorAll(".filter-btn");
-    btns.forEach(btn => {
-        btn.addEventListener("click", function() {
-            btns.forEach(b => b.classList.remove("active"));
-            this.classList.add("active");
-            const filter = this.getAttribute("data-filter");
-            renderGallery(filter);
+    // Filtrage au clic
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            renderGallery(this.getAttribute('data-filter'));
         });
     });
 
-    // Initialisation : afficher toutes les images
-    renderGallery("all");
-
-    // Observer pour animations reveal
+    // 3. SCROLL REVEAL
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1 });
     document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+    // Initialisation
+    renderGallery();
 </script>
+
 </body>
 </html>
