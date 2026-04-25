@@ -7,81 +7,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
     <style>
-        /* STYLE DES FILTRES */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: var(--white);
-            border: 1px solid rgba(26,20,16,.1);
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-pill);
-            font-family: var(--f-body);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: var(--stone);
-        }
-
-        .filter-btn:hover {
-            border-color: var(--rust);
-            color: var(--rust);
-        }
-
-        .filter-btn.active {
-            background: var(--rust);
-            color: var(--white);
-            border-color: var(--rust);
-            box-shadow: 0 4px 15px rgba(192,86,42,0.3);
-        }
-
-        /* GRILLE DE GALERIE */
+        /* Styles spécifiques pour l'éclat de la galerie */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            min-height: 400px;
+            gap: 20px;
+            margin-top: 40px;
         }
-
         .gallery-card {
-            border-radius: var(--radius-md);
-            overflow: hidden;
             position: relative;
             height: 300px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
             background: var(--sand);
             box-shadow: var(--shadow-sm);
+            transition: transform 0.4s ease;
         }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s var(--ease-out);
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.08);
-        }
-
+        .gallery-card:hover { transform: translateY(-10px); }
+        .gallery-card img { width: 100%; height: 100%; object-fit: cover; }
+        
         .gallery-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
+            position: absolute; top: 15px; left: 15px;
             background: rgba(255,255,255,0.9);
-            padding: 0.3rem 0.8rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--rust);
+            padding: 5px 12px; border-radius: 50px;
+            font-weight: 700; font-size: 0.8rem; color: var(--rust);
             z-index: 2;
-            text-transform: uppercase;
+        }
+        .filter-container {
+            display: flex; justify-content: center; gap: 10px;
+            margin: 40px 0; flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 10px 25px; border-radius: 50px; border: 1px solid var(--rust);
+            background: transparent; color: var(--rust); font-weight: 600;
+            cursor: pointer; transition: 0.3s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--rust); color: white;
         }
     </style>
 </head>
@@ -115,10 +78,10 @@
     </ul>
 </div>
 
-<section class="hero" style="min-height: 40vh; padding-top: 150px;">
+<section class="hero" style="padding-top: 150px; min-height: auto; padding-bottom: 50px;">
     <div class="container">
-        <p class="section-label">Portfolio</p>
-        <h1>Galerie <em>Réalisations</em></h1>
+        <p class="section-label">Réalisations</p>
+        <h1>Galerie <em>Photos</em></h1>
         
         <div class="filter-container">
             <button class="filter-btn active" onclick="filterGallery('all', this)">Tous</button>
@@ -129,44 +92,56 @@
     </div>
 </section>
 
-<section class="section">
-    <div class="container">
-        <div class="gallery-grid" id="galleryGrid">
-            </div>
-    </div>
-</section>
+<div class="container" style="margin-bottom: 100px;">
+    <div class="gallery-grid" id="galleryGrid">
+        </div>
+</div>
 
 <script>
-    // Liste des images
-    const images = [
-        { src: "images/brico1.jpg", cat: "brico", title: "Meuble TV" },
-        { src: "images/brico2.jpg", cat: "brico", title: "Étagères" },
-        { src: "images/cuisine1.jpg", cat: "cuisine", title: "Cuisine moderne" },
-        { src: "images/cuisine2.jpg", cat: "cuisine", title: "Plan de travail" },
-        { src: "images/deco1.jpg", cat: "deco", title: "Peinture salon" },
-        { src: "images/deco2.jpg", cat: "deco", title: "Papier peint" }
+    // LISTE DE TOUTES VOS IMAGES RÉELLES
+    const myImages = [
+        // BRICOLAGE (1 à 7)
+        { src: "images/brico1.jpg", cat: "brico", title: "Travaux de bricolage" },
+        { src: "images/brico2.jpg", cat: "brico", title: "Réparation technique" },
+        { src: "images/brico3.jpg", cat: "brico", title: "Installation" },
+        { src: "images/brico4.jpg", cat: "brico", title: "Montage" },
+        { src: "images/brico5.jpg", cat: "brico", title: "Ajustements" },
+        { src: "images/brico6.jpg", cat: "brico", title: "Finitions" },
+        { src: "images/brico7.jpg", cat: "brico", title: "Service bricolage" },
+        // CUISINE (1 à 8)
+        { src: "images/cuisine1.jpg", cat: "cuisine", title: "Pose de cuisine" },
+        { src: "images/cuisine2.jpg", cat: "cuisine", title: "Installation éléments" },
+        { src: "images/cuisine3.jpg", cat: "cuisine", title: "Plan de travail" },
+        { src: "images/cuisine4.jpg", cat: "cuisine", title: "Électroménager" },
+        { src: "images/cuisine5.jpg", cat: "cuisine", title: "Aménagement cuisine" },
+        { src: "images/cuisine6.jpg", cat: "cuisine", title: "Cuisine équipée" },
+        { src: "images/cuisine7.jpg", cat: "cuisine", title: "Rénovation cuisine" },
+        { src: "images/cuisine8.jpg", cat: "cuisine", title: "Finition cuisine" },
+        // DECORATION (1 à 6)
+        { src: "images/deco1.jpg", cat: "deco", title: "Peinture murale" },
+        { src: "images/deco2.jpg", cat: "deco", title: "Décoration intérieure" },
+        { src: "images/deco3.jpg", cat: "deco", title: "Papier peint" },
+        { src: "images/deco4.jpg", cat: "deco", title: "Revêtement" },
+        { src: "images/deco5.jpg", cat: "deco", title: "Peinture plafonds" },
+        { src: "images/deco6.jpg", cat: "deco", title: "Ambiance déco" }
     ];
 
     function filterGallery(category, btn) {
-        // 1. Gérer l'apparence des boutons
+        // Gérer les boutons
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // 2. Filtrer et afficher
         const grid = document.getElementById('galleryGrid');
         grid.innerHTML = '';
 
-        const filtered = category === 'all' ? images : images.filter(img => img.cat === category);
+        const filtered = category === 'all' ? myImages : myImages.filter(img => img.cat === category);
 
         filtered.forEach(img => {
-            const label = img.cat === 'brico' ? '🔨 Brico' : (img.cat === 'cuisine' ? '🍽️ Cuisine' : '🎨 Déco');
+            const emoji = img.cat === 'brico' ? '🔨' : (img.cat === 'cuisine' ? '🍽️' : '🎨');
             grid.innerHTML += `
                 <div class="gallery-card" data-reveal>
-                    <div class="gallery-badge">${label}</div>
+                    <div class="gallery-badge">${emoji} ${img.cat.toUpperCase()}</div>
                     <img src="${img.src}" alt="${img.title}" onerror="this.src='https://picsum.photos/400/300?sig=${Math.random()}'">
-                    <div class="gallery-overlay" style="opacity:1; background:none; padding:1rem;">
-                        <span style="background:rgba(0,0,0,0.5); padding:0.2rem 0.5rem; border-radius:4px;">${img.title}</span>
-                    </div>
                 </div>
             `;
         });
@@ -181,14 +156,15 @@
     toggle.addEventListener('click', () => {
         toggle.classList.toggle('open');
         mobileMenu.classList.toggle('open');
+        document.body.classList.toggle('nav-open');
     });
 
-    // Reveal
+    // Reveal Animation
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
 
-    // Initialisation
+    // Lancer au démarrage
     filterGallery('all', document.querySelector('.filter-btn.active'));
 </script>
 
