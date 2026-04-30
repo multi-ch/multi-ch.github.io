@@ -133,8 +133,25 @@
             <li><a href="/reparations">Réparations locatives</a></li>
             <li><a href="/contact" class="nav-cta">Contact</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
 </header>
+
+<div class="nav-mobile" role="dialog" aria-label="Menu de navigation mobile">
+    <ul class="nav-mobile-links">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/decoration" class="active">Décoration</a></li>
+        <li><a href="/bricolage">Bricolage</a></li>
+        <li><a href="/cuisine">Pose de cuisines</a></li>
+        <li><a href="/galerie">Galerie</a></li>
+        <li><a href="/reparations">Réparations locatives</a></li>
+        <li><a href="/contact" class="nav-mobile-cta">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-footer">
+        <p>Mr CHOUAI H.</p>
+        <a href="tel:0780551298">07 80 55 12 98</a>
+    </div>
+</div>
 
 
 <!-- HERO -->
@@ -322,12 +339,34 @@
 </div>
 
 
-<!-- SCROLL REVEAL -->
+<!-- SCROLL REVEAL & MENU MOBILE -->
 <script>
+    // Scroll Reveal
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+    // Menu Mobile
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.querySelector('.nav-mobile');
+
+    if (toggle && mobileMenu) {
+        toggle.addEventListener('click', () => {
+            const isOpen = toggle.classList.toggle('open');
+            mobileMenu.classList.toggle('open', isOpen);
+            document.body.classList.toggle('nav-open', isOpen);
+        });
+
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('.nav-mobile-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('open');
+                mobileMenu.classList.remove('open');
+                document.body.classList.remove('nav-open');
+            });
+        });
+    }
 </script>
 
 </body>
